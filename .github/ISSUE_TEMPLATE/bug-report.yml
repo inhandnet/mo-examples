@@ -1,0 +1,58 @@
+name: Bug report
+description: Report something in mo-examples that does not work as documented.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for defects in the content of this repository. For
+        questions about using a product, ask in the
+        [community forum](https://community.inhand.com). Do not report
+        security vulnerabilities here; follow SECURITY.md instead.
+  - type: dropdown
+    id: board
+    attributes:
+      label: Board
+      description: The Mo board you are using.
+      options:
+        - Mo 62A
+        - Other (describe below)
+    validations:
+      required: true
+  - type: input
+    id: image-version
+    attributes:
+      label: Image version
+      description: The Mo OS image version on your board (the release you flashed).
+      placeholder: V1.1.0
+    validations:
+      required: true
+  - type: input
+    id: component
+    attributes:
+      label: Affected path
+      description: The directory, script or example in this repository that has the problem.
+      placeholder: ai/
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened
+      description: Describe the problem and how it differs from what you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Commands or actions that reproduce the problem, with the exact output or error.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Additional environment details
+      description: Optional. Host OS, toolchain or runtime versions, attached hardware, and anything else relevant.

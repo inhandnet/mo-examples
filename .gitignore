@@ -1,0 +1,9 @@
+# Local environments and build output
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+build/
+dist/
+.env.local
+*.log

@@ -1,0 +1,79 @@
+# Static checks for every pull request and for pushes to master. The job
+# name `ci` is a required status check in the branch protection of
+# `master`.
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: ci
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+
+      - name: Install checkers
+        run: python3 -m pip install --quiet yamllint pyyaml
+
+      - name: Shell scripts (bash -n and shellcheck)
+        run: |
+          mapfile -t files < <(git ls-files '*.sh' '.githooks/*')
+          printf 'Checking %d shell file(s)\n' "${#files[@]}"
+          for f in "${files[@]}"; do
+            bash -n "$f"
+          done
+          if (( ${#files[@]} )); then
+            shellcheck --shell=bash "${files[@]}"
+          fi
+
+      - name: Python files (py_compile)
+        run: |
+          mapfile -t files < <(git ls-files '*.py')
+          printf 'Checking %d Python file(s)\n' "${#files[@]}"
+          for f in "${files[@]}"; do
+            python3 -m py_compile "$f"
+          done
+
+      - name: YAML files (yamllint and safe_load)
+        run: |
+          mapfile -t files < <(git ls-files '*.yml' '*.yaml')
+          printf 'Checking %d YAML file(s)\n' "${#files[@]}"
+          yamllint --strict "${files[@]}"
+          for f in "${files[@]}"; do
+            python3 -c 'import sys, yaml; yaml.safe_load(open(sys.argv[1], encoding="utf-8"))' "$f"
+          done
+
+      - name: JSON files (parse)
+        run: |
+          mapfile -t files < <(git ls-files '*.json')
+          printf 'Checking %d JSON file(s)\n' "${#files[@]}"
+          for f in "${files[@]}"; do
+            python3 -c 'import sys, json; json.load(open(sys.argv[1], encoding="utf-8"))' "$f"
+          done
+
+      - name: Model catalog (models.json)
+        if: hashFiles('models.json') != ''
+        run: |
+          python3 - <<'EOF'
+          import json
+          with open('models.json', encoding='utf-8') as f:
+              catalog = json.load(f)
+          assert isinstance(catalog, dict), 'models.json must be an object'
+          assert isinstance(catalog.get('models'), list), 'models.json needs a "models" list'
+          print(f"models.json: {len(catalog['models'])} model(s)")
+          EOF
+
+      - name: Changelog generator (node syntax check)
+        run: node --check scripts/generate-changelog.mjs
