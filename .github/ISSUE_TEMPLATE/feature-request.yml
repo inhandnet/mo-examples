@@ -1,0 +1,48 @@
+name: Feature request
+description: Suggest new content or an improvement for mo-examples.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to propose new examples, scripts, models or tooling for
+        this repository. For questions about using a product, ask in the
+        [community forum](https://community.inhand.com).
+  - type: dropdown
+    id: board
+    attributes:
+      label: Board
+      description: The Mo board you are using.
+      options:
+        - Mo 62A
+        - Other (describe below)
+    validations:
+      required: true
+  - type: input
+    id: image-version
+    attributes:
+      label: Image version
+      description: The Mo OS image version on your board (the release you flashed).
+      placeholder: V1.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What are you trying to do, and what is missing or difficult today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe what you would like to see added or changed.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Optional. Other approaches you tried or considered.
