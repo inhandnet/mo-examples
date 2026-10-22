@@ -13,18 +13,18 @@ Related repositories:
 
 ## Status
 
-This repository is a scaffold. The directory layout, contribution rules and the CI and release pipelines are in place; the content itself is added in stages. Each placeholder directory contains a `README.md` that describes what will be published there. Nothing in this repository is ready for production use until a release is published.
+The directory layout, contribution rules and the CI and release pipelines are in place. `ai/` and `camera/` hold the first batch of examples imported from the Mo62A repository and the mo-docs tutorial packages; `peripherals/`, `network/`, `r5f/` and `ros2/` are still placeholders whose `README.md` describes what will be published there. Importing an example into this repository did not re-build or re-run it; each directory README states what was verified and on which image. Nothing in this repository is ready for production use until a release is published.
 
 ## Repository layout
 
 | Path | Purpose |
 | --- | --- |
-| `ai/` | Edge AI demos. |
-| `camera/` | Camera examples. |
+| `ai/` | Edge AI examples: C/C++ SDK examples (`edgeai-cpp/`), a Python ONNX Runtime smoke test (`python-smoke/`) and the zone-occupancy tutorial application (`zone-demo/`). |
+| `camera/` | Camera examples: IMX219 CSI live preview (`imx219-preview/`). |
 | `peripherals/` | Peripheral examples. |
 | `network/` | Networking examples. |
-| `r5f/` | R5F examples. |
-| `ros2/` | ROS 2 examples. |
+| `r5f/` | R5F examples (placeholder, P2). |
+| `ros2/` | ROS 2 examples (placeholder, P2). |
 | `scripts/` | Repository maintenance scripts (commit message check, changelog generation). |
 | `.githooks/` | Git hooks that run the commit message check locally. |
 | `.github/` | Issue forms, pull request template and GitHub Actions workflows. |

@@ -8,16 +8,16 @@ InHand Mo 系列单板计算机的应用演示与示例项目。
 
 ## 状态
 
-本仓库目前是骨架：目录结构、贡献规范以及 CI 与发布流水线已就绪，内容将分阶段加入。每个占位目录中的 `README.md` 说明了该目录将要存放的内容。
+目录结构、贡献规范以及 CI 与发布流水线已就绪。`ai/` 与 `camera/` 已加入第一批示例（来自 Mo62A 仓库与 mo-docs 教程包）；`peripherals/`、`network/`、`r5f/`、`ros2/` 仍为占位目录，其 `README.md` 说明将要存放的内容。示例迁入本仓库时未重新编译或重新运行，各目录 README 写明了验证范围与对应镜像版本。发布版本之前，本仓库内容不作为生产可用。
 
 ## 目录结构
 
-- `ai/` — Edge AI demos
-- `camera/` — Camera examples
+- `ai/` — Edge AI 示例：C/C++ SDK 示例（`edgeai-cpp/`）、Python ONNX Runtime 冒烟测试（`python-smoke/`）、区域占用教程应用（`zone-demo/`）
+- `camera/` — 摄像头示例：IMX219 CSI 实时预览（`imx219-preview/`）
 - `peripherals/` — Peripheral examples
 - `network/` — Networking examples
-- `r5f/` — R5F examples
-- `ros2/` — ROS 2 examples
+- `r5f/` — R5F 示例（占位，P2 阶段）
+- `ros2/` — ROS 2 示例（占位，P2 阶段）
 - `scripts/` — 仓库维护脚本（提交信息检查、变更记录生成）
 - `.githooks/` — 本地提交信息检查钩子
 - `.github/` — Issue 表单、PR 模板与 GitHub Actions 工作流
