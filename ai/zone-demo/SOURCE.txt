@@ -1,0 +1,28 @@
+Video inputs and derived demonstration media
+Creator: domdomegg, https://commons.wikimedia.org/wiki/User:Domdomegg
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+https://creativecommons.org/licenses/by/4.0/
+Full terms and disclaimer: https://creativecommons.org/licenses/by/4.0/legalcode.en
+
+Calibration: Amazon warehouse BHX4 loading docks 2.webm
+https://commons.wikimedia.org/wiki/File:Amazon_warehouse_BHX4_loading_docks_2.webm
+Changes: entire clip; fixed 1280x720 crop at (100,250); 30 fps H.264; audio removed.
+
+Evaluation: Amazon warehouse BHX4 loading docks 1.webm
+https://commons.wikimedia.org/wiki/File:Amazon_warehouse_BHX4_loading_docks_1.webm
+Changes: entire clip; fixed 1280x720 crop at (0,300); 30 fps H.264; audio removed.
+Result screenshots/videos additionally show model detections, an illustrative
+image-space ROI, timing and source credits. No people or detections are added
+by image generation. Both original clips were filmed at the same site/date.
+The animated preview uses source time 6-10 seconds, 8 fps and 960x540 pixels.
+The full result MP4 preserves the source timeline; it is not real-time speed.
+
+This is third-party footage replayed through a tutorial application, not an
+InHand customer deployment or a live camera on Mo62A. The ROI does not describe
+a real restricted area. No misconduct, identity or worker performance is
+inferred. Amazon, the videographer and the depicted people do not endorse this
+example. Copyright permission is not a blanket privacy/publicity/trademark
+clearance for different uses. See sources.json for file hashes and provenance.
+
+Example code/documentation: repository CC BY-SA 4.0.
+TI model and tool downloads: separate upstream licenses; not relicensed here.

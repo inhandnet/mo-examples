@@ -1,0 +1,52 @@
+{
+  "model": {
+    "name": "TI YOLOX-tiny-lite 8210, COCO, 416x416",
+    "source_repository": "https://github.com/TexasInstruments/edgeai-modelzoo",
+    "source_commit": "99f1bd6e434bdde9d26c3b0678ce368e69050ea3",
+    "download_base": "https://software-dl.ti.com/jacinto7/esd/modelzoo/11_02_00/models/vision/detection/coco/edgeai-mmdet/",
+    "onnx_file": "yolox_tiny_lite_416x416_20220217_model.onnx",
+    "onnx_sha256": "c9d2a3fdb21bed079a74029441d83235ddd910c82f1e7b9de5a2a5998bc3eeca",
+    "prototxt_sha256": "bd8d5558af8c982da135579cd84851f9d95382aab6f089df7a49edacb846f142",
+    "license_url": "https://github.com/TexasInstruments/edgeai-modelzoo/blob/99f1bd6e434bdde9d26c3b0678ce368e69050ea3/models/vision/detection/coco/edgeai-mmdet/LICENSE",
+    "note": "Official pretrained ONNX, not a model trained by this tutorial. Metadata and architecture are not interchangeable with another YOLO variant."
+  },
+  "videos": [
+    {
+      "role": "calibration",
+      "creator": "domdomegg",
+      "title": "Amazon warehouse BHX4 loading docks 2.webm",
+      "page": "https://commons.wikimedia.org/wiki/File:Amazon_warehouse_BHX4_loading_docks_2.webm",
+      "page_revision": 929950182,
+      "download": "https://upload.wikimedia.org/wikipedia/commons/0/05/Amazon_warehouse_BHX4_loading_docks_2.webm",
+      "original_sha256": "748729b76df00945664e01a1cb056eaf9235118bab6abbd479f3996a5969c62d",
+      "prepared_file": "inputs/calibration.mp4",
+      "prepared_sha256": "df9cf3be9c275314289be7a8b684d80f094cd8751a3d13637a6283aad27a3c25",
+      "changes": "Entire video; fixed 1280x720 crop at x=100,y=250 from the 1920x1080 source; constant 30 fps; H.264 CRF22/yuv420p; audio removed.",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "role": "evaluation and demonstration",
+      "creator": "domdomegg",
+      "title": "Amazon warehouse BHX4 loading docks 1.webm",
+      "page": "https://commons.wikimedia.org/wiki/File:Amazon_warehouse_BHX4_loading_docks_1.webm",
+      "page_revision": 929950166,
+      "download": "https://upload.wikimedia.org/wikipedia/commons/7/75/Amazon_warehouse_BHX4_loading_docks_1.webm",
+      "original_sha256": "ca784d69572bc5a7d5e3746d3922bff5cb875c77b35d309d9835d54dc3e5b5f5",
+      "prepared_file": "inputs/evaluation.mp4",
+      "prepared_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+      "changes": "Entire video; fixed 1280x720 crop at x=0,y=300 from the 1920x1080 source; constant 30 fps; H.264 CRF22/yuv420p; audio removed. Result media additionally contain actual detections, timing, illustrative ROI and attribution.",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "video_license": "https://creativecommons.org/licenses/by/4.0/",
+  "video_rights_review": {
+    "status": "copyright_license_and_attribution_reviewed",
+    "reviewed_on": "2026-10-21",
+    "terms_url": "https://creativecommons.org/licenses/by/4.0/legalcode.en",
+    "notice": "The author identifies both clips as their own work under CC BY 4.0. The license permits reproduction, adaptation and sharing, including commercial use, subject to its conditions; this tutorial extracts calibration frames and demonstrates local inference. Retain SOURCE.txt and source/license links with copied footage and results. No endorsement, identity analysis or allegation about depicted workers is intended. CC BY does not grant third-party privacy, publicity or trademark rights and is not a warranty of non-infringement. Review different downstream uses separately."
+  },
+  "video_notice": "Third-party recorded footage, not an InHand customer deployment or a live Mo62A camera. The illustrative image-space ROI is not a real site restriction. Amazon, the videographer and depicted people do not endorse this tutorial. Both clips show the same site/date: separate compilation/demo inputs, not a broad independent accuracy dataset.",
+  "checksum_notice": "SHA256 checksums are locally calculated pins, not separately published TI/Wikimedia attestations. Transcoded hashes can differ with FFmpeg versions; preserve original hashes and record derived inputs."
+}

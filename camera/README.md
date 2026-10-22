@@ -1,7 +1,7 @@
 # Camera examples
 
-This directory is a placeholder in the mo-examples scaffold.
+| Directory | What it is | Origin |
+| --- | --- | --- |
+| `imx219-preview/` | Shell script that runs a live IMX219 CSI preview through the VPAC ISP to the HDMI output with GStreamer, plus the `Makefile` the Mo62A flash tool uses to install it. | Mo62A repository, `board-support/extra-applications/imx219-preview` |
 
-Camera capture, preview and video pipeline examples for the CSI and USB cameras supported by Mo boards.
-
-Content is added in later stages; see the [repository README](../README.md) for the overall status.
+See each subdirectory README for prerequisites. Camera pipelines with inference are in `../ai/edgeai-cpp/` (`app_edgeai` with the CSI configuration).
