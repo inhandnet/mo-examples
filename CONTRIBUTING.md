@@ -1,73 +1,23 @@
 # Contributing to mo-examples
 
-Contributions should help people use and develop with Mo series single-board computers. Submit changes through a pull request to `master`.
+Use a topic branch and a pull request to `master`. Keep changes within this repository's source/data responsibility. Tutorials belong to mo-docs; website rendering and integration belong to developer. The required `ci` and `commit-message` checks must pass before normal protected-branch merging.
 
-## Before you start
+## Messages and local checks
 
-- Open an issue for bugs and feature requests using the issue forms. Questions about using a product belong in the [community forum](https://community.inhand.com).
-- Do not include private infrastructure details, credentials, or confidential material in code, commit messages or pull requests. Follow [SECURITY.md](SECURITY.md) for security-related concerns.
-- Only contribute material you have the right to share under the repository [LICENSE](LICENSE). State the license of any third-party content next to it.
+Use a short English Conventional Commit, for example `fix: correct the catalog reference`. Follow [repository-policy.json](config/repository-policy.json); no bilingual Message block is required. Do not add Co-Authored-By trailers, private infrastructure details or CI-skip directives. Historical commit summaries remain readable by the changelog generator.
 
-## Local setup
-
-Enable the Git hooks once per clone so the commit message check runs locally:
-
-```bash
+```sh
 git config core.hooksPath .githooks
+node scripts/check-catalog.mjs
+node --test tests/*.test.mjs
 ```
 
-The `commit-msg` hook checks each commit message; the `pre-push` hook checks every commit that is about to be pushed. Both call `scripts/check-commit-msg.sh`, which is also what CI runs.
+Use Node 22. CI also checks shell, Python, YAML and JSON files. Run affected business tests with their required environment; static checks do not certify hardware behavior. Preserve source notices, licenses and original validation limits when moving resources. Keep each implementation in one owning repository and consume fixed revisions in other repositories.
 
-Before opening a pull request, run the same checks as CI where they apply to your change:
+## Integration and releases
 
-```bash
-shellcheck $(git ls-files '*.sh')
-python3 -m py_compile $(git ls-files '*.py')
-yamllint .
-```
+`validation/` is exported from a committed developer catalog contract. Its lock records file hashes and the exact source commit; update the contract upstream and export it instead of editing the copy. Developer separately validates the actual selected cross-repository combination and website routes.
 
-## Commit message convention
+Create new ordinary annotated `VX.Y.Z` tags only from checked master commits, using the existing authorized release role. Check remote tag availability first. Release CI validates catalogs, packages source and SBOM, records `release.json` and checksums, then publishes the complete release. Only developer uses new RC tags and deploys the website. Never rewrite historical tags or published assets.
 
-Commit messages and pull request titles use this format:
-
-```text
-<type>(<scope>): <subject>
-```
-
-- Allowed types: `feat`, `fix`, `docs`, `refactor`, `sync`, `ci`, and `chore`.
-- The scope is optional. When present, use lowercase letters, digits, and hyphens; use `/` to separate scope segments.
-- Start the subject with a lowercase letter and do not end it with a period.
-- Keep the complete title within 72 characters.
-- If a body is needed, separate it from the title with a blank line. Wrap body lines at 72 characters; URLs and indented code are exempt.
-- Do not include private IP addresses, internal-only domains, or sensitive information.
-- End the message with exactly one bilingual block so releases can generate English and Chinese changelogs. Keep the lines within 72 bytes; a Chinese character counts as three bytes.
-
-  ```text
-  Message:
-    en: Describe the user-visible change in English.
-    zh: 用中文描述用户可见的变更。
-  ```
-
-Example:
-
-```text
-docs(toolchain): describe the host setup steps
-
-Message:
-  en: Describe the host setup steps for the toolchain.
-  zh: 补充工具链的主机环境配置步骤。
-```
-
-The rules are enforced by the [commit-message workflow](.github/workflows/commit-message.yml) using [`scripts/check-commit-msg.sh`](scripts/check-commit-msg.sh). The pull request title, the pull request body and every commit are checked.
-
-## Pull request process
-
-1. Create a branch from `master`; use a short descriptive name such as `feat/benchmark-runner` or `fix/readme-links`.
-2. Keep each pull request focused on one change. Squash fix-up commits before pushing.
-3. Fill in the pull request template. The title follows the commit message convention, and the body ends with the same `Message` block, because pull requests are squash-merged and the title and body become the commit on `master`.
-4. Wait for the `commit-message` and `ci` checks to pass and address review comments.
-5. A maintainer squash-merges the pull request. Direct pushes to `master` are not allowed.
-
-## Releases
-
-Maintainers create releases by pushing an annotated tag that matches `V<major>.<minor>.<patch>` or `V<major>.<minor>.<patch>-rc<n>` from a commit on `master`. See the "Releases and tags" section of [README.md](README.md).
+PR descriptions should state the changed behavior, validation and remaining limits. No bilingual message template is required. Publish new metadata without converting untested or unavailable resources into supported downloads.

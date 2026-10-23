@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "status_values": {
+    "source-available": "Source and requirements are available; catalog publication adds no hardware verification."
+  },
+  "examples": [
+    {
+      "id": "python-smoke",
+      "title": "Python inference smoke test",
+      "category": "ai",
+      "path": "ai/python-smoke",
+      "readme": "ai/python-smoke/README.md",
+      "entrypoints": [
+        "ai/python-smoke/infer-yolox-nano.py"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [
+        "ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416"
+      ],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/ai/inference-apis/",
+      "notes": "Loads the image runtime and model bundle; blank input is not an accuracy or frame-rate test."
+    },
+    {
+      "id": "zone-demo",
+      "title": "Zone occupancy demo resources",
+      "category": "ai",
+      "path": "ai/zone-demo",
+      "readme": "ai/zone-demo/README.md",
+      "entrypoints": [
+        "ai/zone-demo/run_images.py",
+        "ai/zone-demo/run_video.py"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [
+        "yolox-tiny-lite-8210-zone-demo"
+      ],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/ai/compile-your-own-model/",
+      "notes": "Complete application sources, prepared licensed inputs and historical evidence. The shared model contract is a pinned generated copy from mo-models; developer assembles the full tutorial package with model compilation and mo-tools host setup."
+    },
+    {
+      "id": "edgeai-cpp",
+      "title": "Native C/C++ EdgeAI examples",
+      "category": "ai",
+      "path": "ai/edgeai-cpp",
+      "readme": "ai/edgeai-cpp/README.md",
+      "entrypoints": [
+        "ai/edgeai-cpp/hello_inference/CMakeLists.txt",
+        "ai/edgeai-cpp/app_edgeai/CMakeLists.txt"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [
+        "ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416"
+      ],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/ai/inference-apis/",
+      "notes": "Build on the board using its EdgeAI SDK. Importing these sources did not repeat hardware validation."
+    },
+    {
+      "id": "imx219-preview",
+      "title": "IMX219 live preview",
+      "category": "camera",
+      "path": "camera/imx219-preview",
+      "readme": "camera/imx219-preview/README.md",
+      "entrypoints": [
+        "camera/imx219-preview/imx219-preview.sh"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/camera-and-video/",
+      "notes": "Requires the camera boot entry, DCC files and DRM access; temporarily stops the display manager."
+    },
+    {
+      "id": "mcu-console",
+      "title": "MCU R5F console and RPMsg helpers",
+      "category": "r5f",
+      "path": "r5f/mcu-console",
+      "readme": "r5f/mcu-console/README.md",
+      "entrypoints": [
+        "r5f/mcu-console/mo62a_console.c",
+        "r5f/mcu-console/mcu-console.py",
+        "r5f/mcu-console/rpmsg_echo_latency.c",
+        "r5f/mcu-console/reload-cycle.sh"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/real-time-cores/mcu-console/",
+      "notes": "Migrated together with original provenance and evidence; no new hardware qualification.",
+      "toolchain": {
+        "id": "mcu-r5f",
+        "components": [
+          {
+            "name": "MCU+ SDK for AM62Ax",
+            "version": "11.01.00.16",
+            "sha256": "07c2f526505c0881dd9e7b57809f8b0c98983a7b9c182180dc97c88d8724cefe"
+          },
+          {
+            "name": "TI Arm Clang",
+            "version": "4.0.1.LTS",
+            "sha256": "a7b34001e30f60c5dba219dca45f531512ee390b0946ad862df2d291ccea395f"
+          },
+          {
+            "name": "SysConfig",
+            "version": "1.24.0.4150",
+            "sha256": "a636a502bc82ec74a7a8a136440af603d2050e3094743280bbc37a0dd5ecb8e2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "npu-video",
+      "title": "NPU video inference demo",
+      "category": "ai",
+      "path": "ai/npu-demo",
+      "readme": "ai/npu-demo/README.md",
+      "entrypoints": [
+        "ai/npu-demo/run-video-demo.sh"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [
+        "ONR-OD-8220-yolox-s-lite-mmdet-coco-640x640"
+      ],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/getting-started/first-npu-demo/",
+      "notes": "Migrated together with original provenance and evidence; no new hardware qualification."
+    },
+    {
+      "id": "ble-peripheral",
+      "title": "BLE peripheral and GATT check",
+      "category": "network",
+      "path": "network/ble",
+      "readme": "network/ble/README.md",
+      "entrypoints": [
+        "network/ble/mo-ble-demo-peripheral.py",
+        "network/ble/mo-ble-gatt-check.py"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/mo-os/network/",
+      "notes": "Migrated together with original provenance and evidence; no new hardware qualification."
+    },
+    {
+      "id": "jpeg-capture",
+      "title": "IMX219 JPEG capture through TI ISP",
+      "category": "camera",
+      "path": "camera/jpeg-capture",
+      "readme": "camera/jpeg-capture/README.md",
+      "entrypoints": [
+        "camera/jpeg-capture/capture-jpeg-mmap.sh"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/camera-and-video/",
+      "notes": "Migrated together with original provenance and evidence; no new hardware qualification."
+    }
+  ]
+}

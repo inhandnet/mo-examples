@@ -1,0 +1,19 @@
+Traffic sample source: https://commons.wikimedia.org/wiki/File:Queen_Victoria_Street_(Fremantle_Traffic_Bridge)_south.ogv
+Author: Evad37
+License: CC0 1.0, https://creativecommons.org/publicdomain/zero/1.0/
+Changes: seconds 5-25, H.264 / 1280x720 / 30fps, no audio.
+The result video and screenshots show actual Mo62A YOLOX-S-Lite 8220 inference on this sample.
+
+Pedestrian sample and its annotated result recording:
+Source: https://commons.wikimedia.org/wiki/File:Sabana_Grande_Caracas._People_walking_on_the_Boulevard_of_Sabana_Grande,_famous_in_Caracas,_Venezuela.webm
+Author: Vicente Quintero (QuinteroP)
+License: CC BY 3.0, https://creativecommons.org/licenses/by/3.0/
+Changes: first 12 seconds, converted to H.264 / 1280x720 / 30fps, audio removed.
+Result recording adds actual Mo62A YOLOX-S-Lite 8220 detections and performance overlay. No endorsement by the original author is implied.
+
+Pet sample and its annotated result recording:
+Source: https://commons.wikimedia.org/wiki/File:Cat_playing_in_Taiwan.webm
+Author: MiNe
+License: CC BY 2.0, https://creativecommons.org/licenses/by/2.0/
+Changes: seconds 25-45, converted to H.264 / 1280x720 / 30fps, audio removed.
+Result recording adds actual Mo62A YOLOX-S-Lite 8220 detections and performance overlay. No endorsement by the original author is implied.

@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "zone_id": "demo_aisle",
+  "polygon": [[0.62, 0.55], [0.74, 0.55], [0.74, 0.83], [0.62, 0.83]],
+  "score_threshold": 0.4,
+  "dwell_seconds": 0.5,
+  "clear_seconds": 0.5
+}

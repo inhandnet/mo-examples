@@ -39,6 +39,8 @@ jobs:
           fi
 
       - name: Python files (py_compile)
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/mo-example-pycache
         run: |
           mapfile -t files < <(git ls-files '*.py')
           printf 'Checking %d Python file(s)\n' "${#files[@]}"
@@ -74,6 +76,15 @@ jobs:
           assert isinstance(catalog.get('models'), list), 'models.json needs a "models" list'
           print(f"models.json: {len(catalog['models'])} model(s)")
           EOF
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Pinned catalog and governance checks
+        run: |
+          node scripts/check-catalog.mjs
+          node --test tests/*.test.mjs
 
       - name: Changelog generator (node syntax check)
         run: node --check scripts/generate-changelog.mjs

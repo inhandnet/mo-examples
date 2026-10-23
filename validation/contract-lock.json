@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "contract_version": 1,
+  "kind": "catalogs",
+  "repository": "developer",
+  "commit": "f232c881655d0bf3726633192bb961db75954d9e",
+  "files": {
+    "catalogs.mjs": "94b02877e22bb0887f7492b10b784cffa12630acc6b4990cbd6a6af2ae68a87d"
+  }
+}

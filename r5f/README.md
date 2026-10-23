@@ -1,7 +1,9 @@
 # R5F examples
 
-This directory is a placeholder in the mo-examples scaffold.
+[mcu-console/](mcu-console/) contains the MCU R5F firmware, SDK patch, Linux
+console client, RPMsg latency client and reload-cycle helper. Their compatible
+SDK/compiler/SysConfig combination is maintained by mo-tools and constrained
+in `examples.json`. The tutorial stays in mo-docs.
 
-Firmware examples for the Cortex-R5F real-time core: RPMsg communication with Linux, timing-critical I/O and firmware loading.
-
-GTM task R-07 (at least five R5F examples) is scheduled for the P2 stage. Content is added in later stages; see the [repository README](../README.md) for the overall status.
+The existing sample and firmware are available; importing them adds no new
+board validation. Further R5F applications remain separate work.
