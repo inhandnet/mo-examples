@@ -39,6 +39,8 @@ jobs:
           fi
 
       - name: Python files (py_compile)
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/mo-example-pycache
         run: |
           mapfile -t files < <(git ls-files '*.py')
           printf 'Checking %d Python file(s)\n' "${#files[@]}"

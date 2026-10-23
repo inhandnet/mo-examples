@@ -1,0 +1,310 @@
+{
+  "model": "ONR-OD-8220-yolox-s-lite-mmdet-coco-640x640",
+  "input": "traffic-sample.mp4",
+  "input_sha256": "160edc85f81ce7eed5240082ea075d6ee69cbfc50583a6d31a0431b766723aac",
+  "configuration": {
+    "title": "Video file object detection",
+    "log_level": 2,
+    "inputs": {
+      "input0": {
+        "source": "/tmp/mo-npu-video/traffic-sample.mp4",
+        "format": "h264",
+        "width": 1280,
+        "height": 720,
+        "framerate": 30,
+        "loop": true,
+        "drop": false
+      }
+    },
+    "models": {
+      "model0": {
+        "model_path": "/opt/model_zoo/ONR-OD-8220-yolox-s-lite-mmdet-coco-640x640",
+        "viz_threshold": 0.4
+      }
+    },
+    "outputs": {
+      "output0": {
+        "sink": "kmssink",
+        "width": 1920,
+        "height": 1080,
+        "overlay-perf-type": "graph",
+        "main-title": "Video file input - YOLOX-S-Lite"
+      }
+    },
+    "flows": {
+      "flow0": [
+        "input0",
+        "model0",
+        "output0",
+        [
+          320,
+          150,
+          1280,
+          720
+        ]
+      ]
+    }
+  },
+  "method": {
+    "warmup_frames_per_run": 600,
+    "measured_frames_per_run": 600,
+    "runs_per_backend": 3,
+    "backend_order": [
+      "cpp",
+      "python",
+      "python",
+      "cpp",
+      "cpp",
+      "python"
+    ],
+    "recording_during_measurement": false,
+    "timing": "Count 600 completed-frame reports after 600 warm-up reports. Rate uses the remote monotonic interval between /proc/stat snapshots at these boundaries, so the FPS and CPU use the same time window. SSH snapshot latency limits precision; original host report timings are retained separately.",
+    "inference_call": "Application-side dl-inference timer; includes runtime invocation overhead, not a hardware-only NPU kernel timer.",
+    "cpu": "System-wide /proc/stat busy fraction, normalized over all four CPU cores; idle includes iowait.",
+    "clock_khz_at_boundaries": 1400000,
+    "limitations": [
+      "One board, one model, one video; not a universal backend ranking.",
+      "Same model artifacts and input; backend post-processing and scheduling implementations differ.",
+      "Temperatures are recorded per run; no screen capture or input-file transfer during measurement."
+    ]
+  },
+  "summary": {
+    "cpp": {
+      "fps": 21.702743082388732,
+      "cpu_percent": 31.415113301761853,
+      "inference_call_ms_mean": 41.461666666666666,
+      "fps_range": [
+        21.67191864840145,
+        21.73230765002426
+      ]
+    },
+    "python": {
+      "fps": 17.86007107942676,
+      "cpu_percent": 31.249711297692496,
+      "inference_call_ms_mean": 41.509388888888886,
+      "fps_range": [
+        17.816129659523117,
+        17.90498944974591
+      ]
+    },
+    "throughput_gain_percent": 21.515435105901638
+  },
+  "runs": [
+    {
+      "name": "road-1-cpp",
+      "backend": "cpp",
+      "warmup_frames": 600,
+      "measured_frames": 600,
+      "seconds": 27.64467003699974,
+      "fps": 21.70400294874048,
+      "cpu_percent": 31.429634452609058,
+      "inference_call_ms_mean": 41.461666666666666,
+      "inference_call_ms_median": 41.0,
+      "inference_samples": 600,
+      "start": {
+        "total": 4647903,
+        "idle": 4293844,
+        "time": 11704.374179472,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "76509",
+          "thermal_zone0": "78075",
+          "thermal_zone1": "76116"
+        }
+      },
+      "end": {
+        "total": 4658654,
+        "idle": 4301216,
+        "time": 11732.018849509,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "79242",
+          "thermal_zone0": "80016",
+          "thermal_zone1": "77880"
+        }
+      },
+      "host_report_seconds": 27.248096911003813,
+      "host_report_fps": 22.019886451508373
+    },
+    {
+      "name": "road-2-python",
+      "backend": "python",
+      "warmup_frames": 600,
+      "measured_frames": 600,
+      "seconds": 33.596328887999334,
+      "fps": 17.85909412901125,
+      "cpu_percent": 31.320984831160914,
+      "inference_call_ms_mean": 41.49791666666667,
+      "inference_call_ms_median": 41.45,
+      "inference_samples": 600,
+      "start": {
+        "total": 4683350,
+        "idle": 4320433,
+        "time": 11794.806503014,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "79436",
+          "thermal_zone0": "79823",
+          "thermal_zone1": "77294"
+        }
+      },
+      "end": {
+        "total": 4696469,
+        "idle": 4329443,
+        "time": 11828.402831902,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "80787",
+          "thermal_zone0": "81747",
+          "thermal_zone1": "79242"
+        }
+      },
+      "host_report_seconds": 33.22141942899907,
+      "host_report_fps": 18.060637092353083
+    },
+    {
+      "name": "road-3-python",
+      "backend": "python",
+      "warmup_frames": 600,
+      "measured_frames": 600,
+      "seconds": 33.5102124290006,
+      "fps": 17.90498944974591,
+      "cpu_percent": 31.151051625239003,
+      "inference_call_ms_mean": 41.50208333333333,
+      "inference_call_ms_median": 41.45,
+      "inference_samples": 600,
+      "start": {
+        "total": 4720358,
+        "idle": 4347843,
+        "time": 11889.16104136,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "80016",
+          "thermal_zone0": "80979",
+          "thermal_zone1": "79436"
+        }
+      },
+      "end": {
+        "total": 4733433,
+        "idle": 4356845,
+        "time": 11922.671253789,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "81363",
+          "thermal_zone0": "82320",
+          "thermal_zone1": "80209"
+        }
+      },
+      "host_report_seconds": 33.144045257999096,
+      "host_report_fps": 18.102799321250444
+    },
+    {
+      "name": "road-4-cpp",
+      "backend": "cpp",
+      "warmup_frames": 600,
+      "measured_frames": 600,
+      "seconds": 27.685596727000302,
+      "fps": 21.67191864840145,
+      "cpu_percent": 31.403118040089083,
+      "inference_call_ms_mean": 41.485,
+      "inference_call_ms_median": 41.0,
+      "inference_samples": 600,
+      "start": {
+        "total": 4751787,
+        "idle": 4371269,
+        "time": 11969.533234016,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "81938",
+          "thermal_zone0": "82702",
+          "thermal_zone1": "80787"
+        }
+      },
+      "end": {
+        "total": 4762563,
+        "idle": 4378661,
+        "time": 11997.218830743,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "82320",
+          "thermal_zone0": "84031",
+          "thermal_zone1": "81938"
+        }
+      },
+      "host_report_seconds": 27.297103491961025,
+      "host_report_fps": 21.980354075907705
+    },
+    {
+      "name": "road-5-cpp",
+      "backend": "cpp",
+      "warmup_frames": 600,
+      "measured_frames": 600,
+      "seconds": 27.608664927000063,
+      "fps": 21.73230765002426,
+      "cpu_percent": 31.412587412587413,
+      "inference_call_ms_mean": 41.43833333333333,
+      "inference_call_ms_median": 41.0,
+      "inference_samples": 600,
+      "start": {
+        "total": 4781450,
+        "idle": 4393658,
+        "time": 12045.365773722,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "81938",
+          "thermal_zone0": "84031",
+          "thermal_zone1": "81171"
+        }
+      },
+      "end": {
+        "total": 4792175,
+        "idle": 4401014,
+        "time": 12072.974438649,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "83463",
+          "thermal_zone0": "84599",
+          "thermal_zone1": "82129"
+        }
+      },
+      "host_report_seconds": 27.20231734198751,
+      "host_report_fps": 22.05694435723253
+    },
+    {
+      "name": "road-6-python",
+      "backend": "python",
+      "warmup_frames": 600,
+      "measured_frames": 600,
+      "seconds": 33.67734808100067,
+      "fps": 17.816129659523117,
+      "cpu_percent": 31.277097436677572,
+      "inference_call_ms_mean": 41.528166666666664,
+      "inference_call_ms_median": 41.49,
+      "inference_samples": 600,
+      "start": {
+        "total": 4816511,
+        "idle": 4419924,
+        "time": 12134.838273181,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "82320",
+          "thermal_zone0": "82892",
+          "thermal_zone1": "80787"
+        }
+      },
+      "end": {
+        "total": 4829658,
+        "idle": 4428959,
+        "time": 12168.515621262,
+        "cpu_khz": "1400000",
+        "temp": {
+          "thermal_zone2": "83083",
+          "thermal_zone0": "83463",
+          "thermal_zone1": "81938"
+        }
+      },
+      "host_report_seconds": 33.28972934599733,
+      "host_report_fps": 18.023576994690778
+    }
+  ]
+}

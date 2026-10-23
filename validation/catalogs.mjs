@@ -124,6 +124,14 @@ export function checkExamples(root) {
     }
     strings(item.boards, `${where}.boards`); strings(item.images, `${where}.images`); strings(item.models, `${where}.models`, {empty:true});
     need(/^\/docs\/[a-z0-9/-]+\/$/.test(item.documentation), where, 'documentation route required');
+    if (item.toolchain) {
+      need(item.toolchain.id === 'mcu-r5f' && Array.isArray(item.toolchain.components) && item.toolchain.components.length === 3, where, 'invalid R5F toolchain dependency');
+      const names = new Set();
+      for (const part of item.toolchain.components) {
+        text(part.name, `${where}.toolchain.name`); text(part.version, `${where}.toolchain.version`);
+        need(!names.has(part.name) && /^[a-f0-9]{64}$/.test(part.sha256), where, 'duplicate or unpinned R5F component'); names.add(part.name);
+      }
+    }
   }
   return data;
 }
@@ -138,6 +146,12 @@ export function checkCatalogCombination({tools, models, compat, examples, board}
   need(compat.baselines.some(b => b.board === board.board && b.image === board.version), 'composition/Mo62A+mo-models', 'selected image has no model compatibility baseline');
   const byId = new Map(models.models.map(m => [m.id, m]));
   for (const item of examples.examples) {
+    if (item.toolchain) {
+      const selected=tools.r5f;
+      need(selected?.id===item.toolchain.id && item.boards.every(b=>b===selected.board) && item.images.every(v=>selected.images.includes(v)) &&
+        item.toolchain.components.length===selected.components.length && item.toolchain.components.every(required=>selected.components.some(part=>part.name===required.name && part.version===required.version && part.sha256===required.sha256)),
+        `composition/mo-examples/${item.id}`, 'R5F SDK/compiler/SysConfig combination differs from the example requirement');
+    }
     for (const id of item.models) {
       const model = byId.get(id);
       need(model && item.boards.every(b => model.boards.includes(b)) && item.images.every(v => model.images.includes(v)),

@@ -4,7 +4,7 @@ English | [简体中文](README.zh-CN.md)
 
 Application demos and sample projects for InHand Mo series single-board computers.
 
-This repository will hold runnable demos and sample projects for Mo boards: edge AI applications, camera pipelines, peripheral access, networking, R5F real-time core firmware and ROS 2 integration.
+This repository holds runnable demos and sample projects for Mo boards: edge AI applications, camera pipelines, peripheral access, networking, R5F real-time core firmware and ROS 2 integration.
 
 Related repositories:
 
@@ -67,7 +67,7 @@ Each source repository publishes ordinary versions. Developer alone has website 
 
 ## Status
 
-The directory layout, contribution rules and the CI and release pipelines are in place. `ai/` and `camera/` hold the first batch of examples imported from the Mo62A repository and the mo-docs tutorial packages; `peripherals/`, `network/`, `r5f/` and `ros2/` are still placeholders whose `README.md` describes what will be published there. Importing an example into this repository did not re-build or re-run it; each directory README states what was verified and on which image. Catalog publication does not establish new hardware verification or model hosting.
+The directory layout, contribution rules and the CI and release pipelines are in place. `ai/` and `camera/` hold the first batch of examples imported from the Mo62A repository and the mo-docs tutorial packages; `network/ble/`, `r5f/mcu-console/`, `camera/jpeg-capture/` and `ai/npu-demo/` contain migrated tutorial resources; `peripherals/` and `ros2/` are still placeholders whose `README.md` describes what will be published there. Importing an example into this repository did not re-build or re-run it; each directory README states what was verified and on which image. Catalog publication does not establish new hardware verification or model hosting.
 
 ## Repository layout
 
@@ -93,11 +93,11 @@ The directory layout, contribution rules and the CI and release pipelines are in
     </tr>
     <tr>
       <td align="left"><code>network/</code></td>
-      <td align="left">Networking examples.</td>
+      <td align="left">BLE peripheral and GATT check.</td>
     </tr>
     <tr>
       <td align="left"><code>r5f/</code></td>
-      <td align="left">R5F examples (placeholder, P2).</td>
+      <td align="left">MCU console firmware, host client, RPMsg helper and reload-cycle check.</td>
     </tr>
     <tr>
       <td align="left"><code>ros2/</code></td>
@@ -161,6 +161,10 @@ Run `node scripts/check-catalog.mjs` and `node --test tests/*.test.mjs` with Nod
 
 Diagrams are generated centrally by developer/scripts/render-architecture.mjs. Regenerate all repository diagrams after changing the common architecture. Diagrams show ownership; the status section and catalog define currently available content and verification.
 
-R5F firmware, client and test resources currently remain in mo-docs. Their target owner is this repository; projects are added to examples.json only after their sources are integrated.
+R5F firmware, client and checks now live together in [r5f/mcu-console](r5f/mcu-console/README.md). `examples.json` lists eight existing examples; its R5F entry pins SDK, compiler and SysConfig versions and hashes for validation against the selected mo-tools combination.
 
 Regenerate these diagrams from developer with `node scripts/render-architecture.mjs --repo mo-examples --out /path/to/mo-examples/architecture`. Catalog and documentation changes remain in the topic PR; resource consolidation, release freezing and full-site rollout have separate acceptance. Open each diagram to read the original SVG.
+
+## Model interface and complete download bundle
+
+Zone-demo vendors a generated copy of the mo-models `model.py` interface, pinned in `dependencies/model-contract.json`. Update it with `node scripts/sync-model-contract.mjs /path/to/mo-models`, which accepts committed authoritative bytes only. CI and website integration verify hashes. Example sources work independently; developer assembles the full tutorial bundle with model-compilation and host-setup scripts and records provenance for every file.

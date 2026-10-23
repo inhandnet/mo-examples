@@ -1,0 +1,827 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-10-21",
+  "scope": "Short repeatability and numerical agreement; not labeled accuracy, endurance or a pristine release-image claim.",
+  "bundle": {
+    "soc": "AM62A",
+    "tidl_release": "11_02_17_00",
+    "tool_source_commit": "d2be7203e5680298d7f54bcbd38e299d1bc22bfd",
+    "compiler_version": "SOC=am62a\nBRANCH=REL.TIDL.11.02.17.00\nCOMMIT_ID=6f5289fd1c17cf03ff21caa842c9706a06e11fcc\nTOOLS_TYPE=CPU\n",
+    "host_python": "3.10.20",
+    "onnxruntime": "1.23.0",
+    "model_id": "od-8210",
+    "quantization": {
+      "base_bits": 8,
+      "scale_type": 4,
+      "iterations": 3,
+      "selected_16bit_outputs": "1033,711,712,713,727,728,743,744,745"
+    },
+    "calibration": {
+      "source_sha256": "df9cf3be9c275314289be7a8b684d80f094cd8751a3d13637a6283aad27a3c25",
+      "source_fps": 30,
+      "source_frames": 610,
+      "selection": "uniform frame indices",
+      "frames": [
+        {
+          "file": "frame-000000.png",
+          "index": 0,
+          "time_s": 0,
+          "sha256": "e15f879db4e24fea1e1e7ef59e59ab801330bde44dc2c7b7739e880cce33d6da"
+        },
+        {
+          "file": "frame-000019.png",
+          "index": 19,
+          "time_s": 0.6333333333333333,
+          "sha256": "ce51e8f42845f524403cc0bb8672db7187c104e6a72f845558b0e514fa561c29"
+        },
+        {
+          "file": "frame-000039.png",
+          "index": 39,
+          "time_s": 1.3,
+          "sha256": "47739291981c3f7f479915615541f6e3939a0e8485525bbbdc7bef97c93ca0ef"
+        },
+        {
+          "file": "frame-000058.png",
+          "index": 58,
+          "time_s": 1.9333333333333333,
+          "sha256": "c37620ab9a040c8aaf3cafcf5e14eed0704ab33fb7f0cee2b35f38a87f640368"
+        },
+        {
+          "file": "frame-000078.png",
+          "index": 78,
+          "time_s": 2.6,
+          "sha256": "0fb4ce468d910ced2ca3df9f383c14fba1a75c9e01f1f7286070749b9b7d5a11"
+        },
+        {
+          "file": "frame-000098.png",
+          "index": 98,
+          "time_s": 3.2666666666666666,
+          "sha256": "896cccc63daaa699cc5337fc2b03b44d45278003af334e1da3d359bd2a6121ad"
+        },
+        {
+          "file": "frame-000117.png",
+          "index": 117,
+          "time_s": 3.9,
+          "sha256": "0021580ee4c022b238ece3f5ddad87e524f0adde5f1d9e19afe0bc2177cea076"
+        },
+        {
+          "file": "frame-000137.png",
+          "index": 137,
+          "time_s": 4.566666666666666,
+          "sha256": "e05608ab9bdcbcf657d269b2d665def2b27df20579d346f8239a9606247d89b8"
+        },
+        {
+          "file": "frame-000157.png",
+          "index": 157,
+          "time_s": 5.233333333333333,
+          "sha256": "c461799d87c9088476db9deb797f970046a31c78390ab8f9ec3590dc6f2d6904"
+        },
+        {
+          "file": "frame-000176.png",
+          "index": 176,
+          "time_s": 5.866666666666666,
+          "sha256": "092485d5660f176a1ccc82e1c8f699bc569527eba5c7439147a0c51b6f9003b9"
+        },
+        {
+          "file": "frame-000196.png",
+          "index": 196,
+          "time_s": 6.533333333333333,
+          "sha256": "66316880051f84034fc90d4c692aee4bffad9fdd947da0504fd211e1da011768"
+        },
+        {
+          "file": "frame-000216.png",
+          "index": 216,
+          "time_s": 7.2,
+          "sha256": "8849b4522e3dd6b5688726e54250b9dba611ef416d9378f85714fe3d75602418"
+        },
+        {
+          "file": "frame-000235.png",
+          "index": 235,
+          "time_s": 7.833333333333333,
+          "sha256": "ad5ebfb8ac13e4c7c15043e7b4e522070307bf42f95c28150d7ed3d85b5b0e5c"
+        },
+        {
+          "file": "frame-000255.png",
+          "index": 255,
+          "time_s": 8.5,
+          "sha256": "00abdfb46c7311cadfbb16e3776abe28df0b9f6c1272650a4e0020c9b505d77d"
+        },
+        {
+          "file": "frame-000275.png",
+          "index": 275,
+          "time_s": 9.166666666666666,
+          "sha256": "c9ce7bab079993f726b0129173c42510f3f8484a63608d441e58ae0a9afe364e"
+        },
+        {
+          "file": "frame-000294.png",
+          "index": 294,
+          "time_s": 9.8,
+          "sha256": "4df270102f6a77c234a00e54fad9b13fd95945cd935e8ff0b2628c31d20bcf6f"
+        },
+        {
+          "file": "frame-000314.png",
+          "index": 314,
+          "time_s": 10.466666666666667,
+          "sha256": "347f82506bb90527b3b4390c9b23692a9ccf5cedf12b98faadc3a5b309631a2e"
+        },
+        {
+          "file": "frame-000333.png",
+          "index": 333,
+          "time_s": 11.1,
+          "sha256": "f6b0ed0456a7875440a065aa1742f5d9597171323eba05f57933e5caf08001a5"
+        },
+        {
+          "file": "frame-000353.png",
+          "index": 353,
+          "time_s": 11.766666666666667,
+          "sha256": "06f6d3f445db3917668b5e68b18e1c88c66d981ebb83f10e8ca33f18c3aafbb8"
+        },
+        {
+          "file": "frame-000373.png",
+          "index": 373,
+          "time_s": 12.433333333333334,
+          "sha256": "0c4c3a3dd4546b4aae74a0a1d4d43cb4d4eaa295d5b95e2e330180e08b75d982"
+        },
+        {
+          "file": "frame-000392.png",
+          "index": 392,
+          "time_s": 13.066666666666666,
+          "sha256": "cc595e80bd4ea0e3cbaced77bbf2e01d74629970556c6d17bc88bfc4d441af89"
+        },
+        {
+          "file": "frame-000412.png",
+          "index": 412,
+          "time_s": 13.733333333333333,
+          "sha256": "d94d57dd24a6beb6edbfb140282a8206b7cd4025e31eb9b6a2842140a188ebb9"
+        },
+        {
+          "file": "frame-000432.png",
+          "index": 432,
+          "time_s": 14.4,
+          "sha256": "22acd1687904549aad188b94060121d8d1fcb8c3b2306ceb9f08e4fa6ae64064"
+        },
+        {
+          "file": "frame-000451.png",
+          "index": 451,
+          "time_s": 15.033333333333333,
+          "sha256": "19b097d100cba0651624086f1a283ed1e2ae00930b4f921d20bd8f5b6b90c6b6"
+        },
+        {
+          "file": "frame-000471.png",
+          "index": 471,
+          "time_s": 15.7,
+          "sha256": "2a10f165e3c9134f2eb72090a331f71c407706e2e2cd8acb748ef8974596d975"
+        },
+        {
+          "file": "frame-000491.png",
+          "index": 491,
+          "time_s": 16.366666666666667,
+          "sha256": "616de71cb0be1d0cabf593d7a8420d4746ad02fa17581d74cd5218dba3cf7557"
+        },
+        {
+          "file": "frame-000510.png",
+          "index": 510,
+          "time_s": 17,
+          "sha256": "f038461659eaa5ad9798663d58f3344d0905f83a47e93a0d39182f5c3c854331"
+        },
+        {
+          "file": "frame-000530.png",
+          "index": 530,
+          "time_s": 17.666666666666668,
+          "sha256": "f8110d9c780ca428c77c4d00fbb36348c2137c47f229934af5cdecb79b109bae"
+        },
+        {
+          "file": "frame-000550.png",
+          "index": 550,
+          "time_s": 18.333333333333332,
+          "sha256": "a0e63f0fbf01cbf3aa5b8d7f778b7855ebe664d8ee881cdc04a3fbfb08e91b83"
+        },
+        {
+          "file": "frame-000569.png",
+          "index": 569,
+          "time_s": 18.966666666666665,
+          "sha256": "2facc3029600b4de91eafaefb9cf8671e95bd37ad8f9b6e537814cc047ac41dd"
+        },
+        {
+          "file": "frame-000589.png",
+          "index": 589,
+          "time_s": 19.633333333333333,
+          "sha256": "fb4c491f4fbf58794c7abfb63315c9ba3da9e6cb05799b677638e57cf72ce609"
+        },
+        {
+          "file": "frame-000609.png",
+          "index": 609,
+          "time_s": 20.3,
+          "sha256": "10cc86e4c66166d3b6bf75744f6a01cc05d2c23f1b7a5fd09752e9c6829392cd"
+        }
+      ]
+    },
+    "elapsed_seconds": 385.8420108089922,
+    "files": {
+      "artifacts/allowedNode.txt": "9e699c4b2c882aa235682eb2cd8e246d6bdd19e549e30cd89a172cfca97b88d3",
+      "artifacts/onnxrtMetaData.txt": "1282836eef9e54deb283ae838d6151d1b993107d823eb94ee89bdee3a8d15000",
+      "artifacts/subgraph_0_tidl_io_1.bin": "885b4a5f04ae718e76ff124753ca79da2ac7b4c3e2aacd3ebb93879a11894fd2",
+      "artifacts/subgraph_0_tidl_net.bin": "33191f411f0f3a8d66f1ca2874169d5a2747cdb1ca71bbaf7842d4295e681d35",
+      "model/yolox_tiny_lite_416x416_20220217_model.onnx": "c9d2a3fdb21bed079a74029441d83235ddd910c82f1e7b9de5a2a5998bc3eeca",
+      "model/yolox_tiny_lite_416x416_20220217_model.prototxt": "bd8d5558af8c982da135579cd84851f9d95382aab6f089df7a49edacb846f142"
+    },
+    "scope": "Compilation record only; target output, accuracy and stability still require separate validation"
+  },
+  "evaluation": {
+    "source_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+    "source_fps": 30,
+    "source_frames": 611,
+    "selection": "uniform frame indices",
+    "frames": [
+      {
+        "file": "frame-000000.png",
+        "index": 0,
+        "time_s": 0,
+        "sha256": "c48862452d61c745ab07721c079914b58161daaca4b97e637d9f0c3bc06d42fd"
+      },
+      {
+        "file": "frame-000087.png",
+        "index": 87,
+        "time_s": 2.9,
+        "sha256": "52a26cf9410bfd4ede7e8846dc801b200fe518eedde251fa70a9e104bedb7143"
+      },
+      {
+        "file": "frame-000174.png",
+        "index": 174,
+        "time_s": 5.8,
+        "sha256": "96c1048260603fe04b4f580d4ea1f328b8c77aac2734e826ea495048d6444cc8"
+      },
+      {
+        "file": "frame-000261.png",
+        "index": 261,
+        "time_s": 8.7,
+        "sha256": "98d52370d64d70900a6b9ff1b06ff54064676f9a8a52343f59a7a5a0322aa51c"
+      },
+      {
+        "file": "frame-000348.png",
+        "index": 348,
+        "time_s": 11.6,
+        "sha256": "ba35a6a150182ebfda5f63f6dc7cd8798f0909140542bc4156e3c7f1819e79d2"
+      },
+      {
+        "file": "frame-000435.png",
+        "index": 435,
+        "time_s": 14.5,
+        "sha256": "a954ccd2b23b1df520fcc983403d087d503c16c601338f5af8a5ae155710e71f"
+      },
+      {
+        "file": "frame-000522.png",
+        "index": 522,
+        "time_s": 17.4,
+        "sha256": "c6688226cb14508a150caf6874eca94960d437936d738e277c4c212bd77c63dd"
+      },
+      {
+        "file": "frame-000610.png",
+        "index": 610,
+        "time_s": 20.333333333333332,
+        "sha256": "f546d580855789a273e109d3e38040516cc605d9873d59048925db0ea7cef9a9"
+      }
+    ]
+  },
+  "cpu_images": {
+    "backend": "cpu",
+    "machine": "x86_64",
+    "python": "3.10.20",
+    "source_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+    "samples": [
+      {
+        "file": "frame-000000.png",
+        "input_sha256": "c48862452d61c745ab07721c079914b58161daaca4b97e637d9f0c3bc06d42fd",
+        "inference_ms": 75.8422079961747,
+        "detections": []
+      },
+      {
+        "file": "frame-000087.png",
+        "input_sha256": "52a26cf9410bfd4ede7e8846dc801b200fe518eedde251fa70a9e104bedb7143",
+        "inference_ms": 73.95938102854416,
+        "detections": []
+      },
+      {
+        "file": "frame-000174.png",
+        "input_sha256": "96c1048260603fe04b4f580d4ea1f328b8c77aac2734e826ea495048d6444cc8",
+        "inference_ms": 72.41358800092712,
+        "detections": []
+      },
+      {
+        "file": "frame-000261.png",
+        "input_sha256": "98d52370d64d70900a6b9ff1b06ff54064676f9a8a52343f59a7a5a0322aa51c",
+        "inference_ms": 73.44702002592385,
+        "detections": [
+          {
+            "label": 0,
+            "score": 0.5755745768547058,
+            "box": [
+              235.92609112079327,
+              549.2292668269231,
+              289.44786658653845,
+              656.9535945012019
+            ]
+          }
+        ]
+      },
+      {
+        "file": "frame-000348.png",
+        "input_sha256": "ba35a6a150182ebfda5f63f6dc7cd8798f0909140542bc4156e3c7f1819e79d2",
+        "inference_ms": 77.76681199902669,
+        "detections": []
+      },
+      {
+        "file": "frame-000435.png",
+        "input_sha256": "a954ccd2b23b1df520fcc983403d087d503c16c601338f5af8a5ae155710e71f",
+        "inference_ms": 73.41376598924398,
+        "detections": []
+      },
+      {
+        "file": "frame-000522.png",
+        "input_sha256": "c6688226cb14508a150caf6874eca94960d437936d738e277c4c212bd77c63dd",
+        "inference_ms": 73.84492998244241,
+        "detections": []
+      },
+      {
+        "file": "frame-000610.png",
+        "input_sha256": "f546d580855789a273e109d3e38040516cc605d9873d59048925db0ea7cef9a9",
+        "inference_ms": 75.02618699800223,
+        "detections": [
+          {
+            "label": 0,
+            "score": 0.6231085658073425,
+            "box": [
+              809.0550818810096,
+              478.62605168269226,
+              855.9712101862981,
+              607.3613093449519
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "Output agreement, not labeled task accuracy; calls include runtime overhead"
+  },
+  "host_images": {
+    "backend": "tidl",
+    "machine": "x86_64",
+    "python": "3.10.20",
+    "source_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+    "samples": [
+      {
+        "file": "frame-000000.png",
+        "input_sha256": "c48862452d61c745ab07721c079914b58161daaca4b97e637d9f0c3bc06d42fd",
+        "inference_ms": 2822.369893954601,
+        "detections": []
+      },
+      {
+        "file": "frame-000087.png",
+        "input_sha256": "52a26cf9410bfd4ede7e8846dc801b200fe518eedde251fa70a9e104bedb7143",
+        "inference_ms": 2636.564255983103,
+        "detections": []
+      },
+      {
+        "file": "frame-000174.png",
+        "input_sha256": "96c1048260603fe04b4f580d4ea1f328b8c77aac2734e826ea495048d6444cc8",
+        "inference_ms": 2605.257442977745,
+        "detections": []
+      },
+      {
+        "file": "frame-000261.png",
+        "input_sha256": "98d52370d64d70900a6b9ff1b06ff54064676f9a8a52343f59a7a5a0322aa51c",
+        "inference_ms": 2696.5818970347755,
+        "detections": [
+          {
+            "label": 0,
+            "score": 0.5843073725700378,
+            "box": [
+              236.62815974308893,
+              547.8971980168269,
+              289.0324049729567,
+              659.8587740384615
+            ]
+          }
+        ]
+      },
+      {
+        "file": "frame-000348.png",
+        "input_sha256": "ba35a6a150182ebfda5f63f6dc7cd8798f0909140542bc4156e3c7f1819e79d2",
+        "inference_ms": 2644.259316031821,
+        "detections": []
+      },
+      {
+        "file": "frame-000435.png",
+        "input_sha256": "a954ccd2b23b1df520fcc983403d087d503c16c601338f5af8a5ae155710e71f",
+        "inference_ms": 2654.0257949964143,
+        "detections": []
+      },
+      {
+        "file": "frame-000522.png",
+        "input_sha256": "c6688226cb14508a150caf6874eca94960d437936d738e277c4c212bd77c63dd",
+        "inference_ms": 2637.000260001514,
+        "detections": []
+      },
+      {
+        "file": "frame-000610.png",
+        "input_sha256": "f546d580855789a273e109d3e38040516cc605d9873d59048925db0ea7cef9a9",
+        "inference_ms": 2696.420116000809,
+        "detections": [
+          {
+            "label": 0,
+            "score": 0.6415600776672363,
+            "box": [
+              809.3868314302885,
+              478.16795935997595,
+              855.3568209134615,
+              606.0790076622596
+            ]
+          }
+        ]
+      }
+    ],
+    "scope": "Output agreement, not labeled task accuracy; calls include runtime overhead"
+  },
+  "board_images": {
+    "backend": "tidl",
+    "machine": "aarch64",
+    "python": "3.13.5",
+    "source_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+    "samples": [
+      {
+        "file": "frame-000000.png",
+        "input_sha256": "c48862452d61c745ab07721c079914b58161daaca4b97e637d9f0c3bc06d42fd",
+        "inference_ms": 19.3306119999761,
+        "detections": [],
+        "host_tidl_exact_match": true
+      },
+      {
+        "file": "frame-000087.png",
+        "input_sha256": "52a26cf9410bfd4ede7e8846dc801b200fe518eedde251fa70a9e104bedb7143",
+        "inference_ms": 17.364390999773605,
+        "detections": [],
+        "host_tidl_exact_match": true
+      },
+      {
+        "file": "frame-000174.png",
+        "input_sha256": "96c1048260603fe04b4f580d4ea1f328b8c77aac2734e826ea495048d6444cc8",
+        "inference_ms": 17.275701000016852,
+        "detections": [],
+        "host_tidl_exact_match": true
+      },
+      {
+        "file": "frame-000261.png",
+        "input_sha256": "98d52370d64d70900a6b9ff1b06ff54064676f9a8a52343f59a7a5a0322aa51c",
+        "inference_ms": 17.215810999914538,
+        "detections": [
+          {
+            "label": 0,
+            "score": 0.5843073725700378,
+            "box": [
+              236.62815974308893,
+              547.8971980168269,
+              289.0324049729567,
+              659.8587740384615
+            ]
+          }
+        ],
+        "host_tidl_exact_match": true
+      },
+      {
+        "file": "frame-000348.png",
+        "input_sha256": "ba35a6a150182ebfda5f63f6dc7cd8798f0909140542bc4156e3c7f1819e79d2",
+        "inference_ms": 17.280797000239545,
+        "detections": [],
+        "host_tidl_exact_match": true
+      },
+      {
+        "file": "frame-000435.png",
+        "input_sha256": "a954ccd2b23b1df520fcc983403d087d503c16c601338f5af8a5ae155710e71f",
+        "inference_ms": 17.822943999817653,
+        "detections": [],
+        "host_tidl_exact_match": true
+      },
+      {
+        "file": "frame-000522.png",
+        "input_sha256": "c6688226cb14508a150caf6874eca94960d437936d738e277c4c212bd77c63dd",
+        "inference_ms": 17.19408700000713,
+        "detections": [],
+        "host_tidl_exact_match": true
+      },
+      {
+        "file": "frame-000610.png",
+        "input_sha256": "f546d580855789a273e109d3e38040516cc605d9873d59048925db0ea7cef9a9",
+        "inference_ms": 17.32133099994826,
+        "detections": [
+          {
+            "label": 0,
+            "score": 0.6415600776672363,
+            "box": [
+              809.3868314302885,
+              478.16795935997595,
+              855.3568209134615,
+              606.0790076622596
+            ]
+          }
+        ],
+        "host_tidl_exact_match": true
+      }
+    ],
+    "scope": "Output agreement, not labeled task accuracy; calls include runtime overhead"
+  },
+  "cpu_quantized_agreement": {
+    "scope": "Greedy same-class box agreement at score >=0.4 and IoU >=0.5, not labeled accuracy or mAP.",
+    "frames": [
+      {
+        "file": "frame-000000.png",
+        "cpu_person_count": 0,
+        "quantized_person_count": 0,
+        "matches_iou_0_5": [],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      },
+      {
+        "file": "frame-000087.png",
+        "cpu_person_count": 0,
+        "quantized_person_count": 0,
+        "matches_iou_0_5": [],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      },
+      {
+        "file": "frame-000174.png",
+        "cpu_person_count": 0,
+        "quantized_person_count": 0,
+        "matches_iou_0_5": [],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      },
+      {
+        "file": "frame-000261.png",
+        "cpu_person_count": 1,
+        "quantized_person_count": 1,
+        "matches_iou_0_5": [
+          {
+            "iou": 0.9428097564427202,
+            "score_delta": 0.008732795715332031
+          }
+        ],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      },
+      {
+        "file": "frame-000348.png",
+        "cpu_person_count": 0,
+        "quantized_person_count": 0,
+        "matches_iou_0_5": [],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      },
+      {
+        "file": "frame-000435.png",
+        "cpu_person_count": 0,
+        "quantized_person_count": 0,
+        "matches_iou_0_5": [],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      },
+      {
+        "file": "frame-000522.png",
+        "cpu_person_count": 0,
+        "quantized_person_count": 0,
+        "matches_iou_0_5": [],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      },
+      {
+        "file": "frame-000610.png",
+        "cpu_person_count": 1,
+        "quantized_person_count": 1,
+        "matches_iou_0_5": [
+          {
+            "iou": 0.9667029587399042,
+            "score_delta": 0.0184515118598938
+          }
+        ],
+        "unmatched_cpu": 0,
+        "unmatched_quantized": 0
+      }
+    ]
+  },
+  "video_runs": [
+    {
+      "run": 1,
+      "completed": true,
+      "failure_type": null,
+      "started_utc": "2026-10-21T04:27:57.572506+00:00",
+      "backend": "tidl",
+      "machine": "aarch64",
+      "python": "3.13.5",
+      "opencv": "4.10.0",
+      "numpy": "2.2.4",
+      "input_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+      "credit": "Video: domdomegg / Wikimedia Commons / CC BY 4.0 | Illustrative ROI; no endorsement",
+      "config": {
+        "schema_version": 1,
+        "zone_id": "demo_aisle",
+        "polygon": [
+          [
+            0.62,
+            0.55
+          ],
+          [
+            0.74,
+            0.55
+          ],
+          [
+            0.74,
+            0.83
+          ],
+          [
+            0.62,
+            0.83
+          ]
+        ],
+        "score_threshold": 0.4,
+        "dwell_seconds": 0.5,
+        "clear_seconds": 0.5
+      },
+      "source_fps": 30,
+      "stride": 1,
+      "processed_frames": 611,
+      "elapsed_seconds": 77.61996699500014,
+      "processed_fps": 7.871685903182068,
+      "process_cpu_seconds": 87.309886165,
+      "inference_ms": {
+        "mean": 17.61589711784378,
+        "p95": 17.986923000080424
+      },
+      "last_zone_state": "clear",
+      "events": [
+        {
+          "event": "zone_occupied",
+          "detected_since_s": 6.866666666666666,
+          "zone_id": "demo_aisle",
+          "source_time_s": 7.366666666666666,
+          "people_inside": 1
+        },
+        {
+          "event": "zone_cleared",
+          "detected_since_s": 6.866666666666666,
+          "occupancy_duration_s": 1.2999999999999998,
+          "zone_id": "demo_aisle",
+          "source_time_s": 8.666666666666666,
+          "people_inside": 0
+        }
+      ],
+      "measurement_scope": "Offline decode, preprocessing, synchronous inference, zone rules, drawing and MJPEG/file output; excludes session creation. No realtime pacing or power measurement.",
+      "limitations": "Illustrative stock-footage ROI; no identity tracking, labeled accuracy claim or safety certification. EOF is not a zone-clear event.",
+      "opencv_capture_backend": "FFMPEG"
+    },
+    {
+      "run": 2,
+      "completed": true,
+      "failure_type": null,
+      "started_utc": "2026-10-21T04:31:46.903041+00:00",
+      "backend": "tidl",
+      "machine": "aarch64",
+      "python": "3.13.5",
+      "opencv": "4.10.0",
+      "numpy": "2.2.4",
+      "input_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+      "credit": "Video: domdomegg / Wikimedia Commons / CC BY 4.0 | Illustrative ROI; no endorsement",
+      "config": {
+        "schema_version": 1,
+        "zone_id": "demo_aisle",
+        "polygon": [
+          [
+            0.62,
+            0.55
+          ],
+          [
+            0.74,
+            0.55
+          ],
+          [
+            0.74,
+            0.83
+          ],
+          [
+            0.62,
+            0.83
+          ]
+        ],
+        "score_threshold": 0.4,
+        "dwell_seconds": 0.5,
+        "clear_seconds": 0.5
+      },
+      "source_fps": 30,
+      "stride": 1,
+      "processed_frames": 611,
+      "elapsed_seconds": 78.11878139800001,
+      "processed_fps": 7.821422570419702,
+      "process_cpu_seconds": 87.80381903,
+      "inference_ms": {
+        "mean": 17.607603112935056,
+        "p95": 17.99800799994955
+      },
+      "last_zone_state": "clear",
+      "events": [
+        {
+          "event": "zone_occupied",
+          "detected_since_s": 6.866666666666666,
+          "zone_id": "demo_aisle",
+          "source_time_s": 7.366666666666666,
+          "people_inside": 1
+        },
+        {
+          "event": "zone_cleared",
+          "detected_since_s": 6.866666666666666,
+          "occupancy_duration_s": 1.2999999999999998,
+          "zone_id": "demo_aisle",
+          "source_time_s": 8.666666666666666,
+          "people_inside": 0
+        }
+      ],
+      "measurement_scope": "Offline decode, preprocessing, synchronous inference, zone rules, drawing and MJPEG/file output; excludes session creation. No realtime pacing or power measurement.",
+      "limitations": "Illustrative stock-footage ROI; no identity tracking, labeled accuracy claim or safety certification. EOF is not a zone-clear event.",
+      "opencv_capture_backend": "FFMPEG"
+    },
+    {
+      "run": 3,
+      "completed": true,
+      "failure_type": null,
+      "started_utc": "2026-10-21T04:35:55.958998+00:00",
+      "backend": "tidl",
+      "machine": "aarch64",
+      "python": "3.13.5",
+      "opencv": "4.10.0",
+      "numpy": "2.2.4",
+      "input_sha256": "fba367bfad48335444a236123afde022c28dd7ed4dce9d9b1422179d295d49c5",
+      "credit": "Video: domdomegg / Wikimedia Commons / CC BY 4.0 | Illustrative ROI; no endorsement",
+      "config": {
+        "schema_version": 1,
+        "zone_id": "demo_aisle",
+        "polygon": [
+          [
+            0.62,
+            0.55
+          ],
+          [
+            0.74,
+            0.55
+          ],
+          [
+            0.74,
+            0.83
+          ],
+          [
+            0.62,
+            0.83
+          ]
+        ],
+        "score_threshold": 0.4,
+        "dwell_seconds": 0.5,
+        "clear_seconds": 0.5
+      },
+      "source_fps": 30,
+      "stride": 1,
+      "processed_frames": 611,
+      "elapsed_seconds": 77.4511522329999,
+      "processed_fps": 7.8888432564811986,
+      "process_cpu_seconds": 87.231448895,
+      "inference_ms": {
+        "mean": 17.622273653028202,
+        "p95": 18.022067999936553
+      },
+      "last_zone_state": "clear",
+      "events": [
+        {
+          "event": "zone_occupied",
+          "detected_since_s": 6.866666666666666,
+          "zone_id": "demo_aisle",
+          "source_time_s": 7.366666666666666,
+          "people_inside": 1
+        },
+        {
+          "event": "zone_cleared",
+          "detected_since_s": 6.866666666666666,
+          "occupancy_duration_s": 1.2999999999999998,
+          "zone_id": "demo_aisle",
+          "source_time_s": 8.666666666666666,
+          "people_inside": 0
+        }
+      ],
+      "measurement_scope": "Offline decode, preprocessing, synchronous inference, zone rules, drawing and MJPEG/file output; excludes session creation. No realtime pacing or power measurement.",
+      "limitations": "Illustrative stock-footage ROI; no identity tracking, labeled accuracy claim or safety certification. EOF is not a zone-clear event.",
+      "opencv_capture_backend": "FFMPEG"
+    }
+  ],
+  "repeatability": {
+    "per_frame_detections_and_states_identical": true,
+    "frames_each": 611,
+    "original_baseline_before_after": "three finite-output calls each",
+    "boot_unchanged": true,
+    "remoteproc_after": "running",
+    "note": "Wall-clock inference times vary. No package/firmware update or reboot during these runs."
+  }
+}

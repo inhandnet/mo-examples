@@ -3,8 +3,8 @@
   "contract_version": 1,
   "kind": "catalogs",
   "repository": "developer",
-  "commit": "d06d910b6723e3fcc4e4c16ee88c3479d0810c36",
+  "commit": "f232c881655d0bf3726633192bb961db75954d9e",
   "files": {
-    "catalogs.mjs": "97197eff9b8c61dedcd66a5212c42693974d3cd5844b89f6f90a7601ed813289"
+    "catalogs.mjs": "94b02877e22bb0887f7492b10b784cffa12630acc6b4990cbd6a6af2ae68a87d"
   }
 }
