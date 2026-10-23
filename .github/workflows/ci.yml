@@ -75,5 +75,14 @@ jobs:
           print(f"models.json: {len(catalog['models'])} model(s)")
           EOF
 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Pinned catalog and governance checks
+        run: |
+          node scripts/check-catalog.mjs
+          node --test tests/*.test.mjs
+
       - name: Changelog generator (node syntax check)
         run: node --check scripts/generate-changelog.mjs

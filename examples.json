@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status_values": {
+    "source-available": "Source and requirements are available; catalog publication adds no hardware verification."
+  },
+  "examples": [
+    {
+      "id": "python-smoke",
+      "title": "Python inference smoke test",
+      "category": "ai",
+      "path": "ai/python-smoke",
+      "readme": "ai/python-smoke/README.md",
+      "entrypoints": [
+        "ai/python-smoke/infer-yolox-nano.py"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [
+        "ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416"
+      ],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/ai/inference-apis/",
+      "notes": "Loads the image runtime and model bundle; blank input is not an accuracy or frame-rate test."
+    },
+    {
+      "id": "zone-demo",
+      "title": "Zone occupancy demo resources",
+      "category": "ai",
+      "path": "ai/zone-demo",
+      "readme": "ai/zone-demo/README.md",
+      "entrypoints": [
+        "ai/zone-demo/logic.py",
+        "ai/zone-demo/prepare_inputs.py"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [
+        "yolox-tiny-lite-8210-zone-demo"
+      ],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/ai/compile-your-own-model/",
+      "notes": "Application resources currently available in this repository. The complete runnable tutorial package is being consolidated; model compilation and host setup belong to mo-models and mo-tools."
+    },
+    {
+      "id": "edgeai-cpp",
+      "title": "Native C/C++ EdgeAI examples",
+      "category": "ai",
+      "path": "ai/edgeai-cpp",
+      "readme": "ai/edgeai-cpp/README.md",
+      "entrypoints": [
+        "ai/edgeai-cpp/hello_inference/CMakeLists.txt",
+        "ai/edgeai-cpp/app_edgeai/CMakeLists.txt"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [
+        "ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416"
+      ],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/ai/inference-apis/",
+      "notes": "Build on the board using its EdgeAI SDK. Importing these sources did not repeat hardware validation."
+    },
+    {
+      "id": "imx219-preview",
+      "title": "IMX219 live preview",
+      "category": "camera",
+      "path": "camera/imx219-preview",
+      "readme": "camera/imx219-preview/README.md",
+      "entrypoints": [
+        "camera/imx219-preview/imx219-preview.sh"
+      ],
+      "boards": [
+        "mo-62a"
+      ],
+      "images": [
+        "V1.1.0"
+      ],
+      "models": [],
+      "verification": "source-available",
+      "documentation": "/docs/mo-62a/application-development/camera-and-video/",
+      "notes": "Requires the camera boot entry, DCC files and DRM access; temporarily stops the display manager."
+    }
+  ]
+}

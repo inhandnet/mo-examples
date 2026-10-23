@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "repository": "inhandnet/mo-examples",
+  "kind": "examples",
+  "catalogs": [
+    "examples.json"
+  ]
+}

@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-# Reject a commit whose message breaks the convention in README.md.
-# Enable once per clone:  git config core.hooksPath .githooks
-#
-# fixup!/squash! commits are accepted here so `git commit --fixup` keeps
-# working; the pre-push hook and CI reject them if they are not squashed.
+# Enable with git config core.hooksPath .githooks.
 exec "$(git rev-parse --show-toplevel)/scripts/check-commit-msg.sh" \
-  --file "$1" --allow-autosquash
+  --file "$1"

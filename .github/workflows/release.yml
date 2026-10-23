@@ -1,11 +1,8 @@
-# Publish a GitHub Release for an annotated tag V<major>.<minor>.<patch> or
-# V<major>.<minor>.<patch>-rc<n> whose commit is on master. A release
-# candidate (-rc) is published as a prerelease. Nothing is deployed.
 name: release
 
 on:
   push:
-    tags: ['V*']
+    tags: ['**']
 
 permissions:
   contents: read
@@ -35,10 +32,7 @@ jobs:
 
       - name: Validate tag name, tag type and source branch
         run: |
-          if [[ ! $TAG =~ ^V[0-9]+\.[0-9]+\.[0-9]+(-rc[0-9]+)?$ ]]; then
-            echo "::error::tag '$TAG' must match V<major>.<minor>.<patch>[-rc<n>]"
-            exit 1
-          fi
+          node scripts/validate-release-version.mjs "$TAG"
           if [[ $(git cat-file -t "refs/tags/$TAG") != tag ]]; then
             echo "::error::tag '$TAG' must be an annotated tag"
             exit 1
@@ -49,6 +43,12 @@ jobs:
             echo "::error::tag '$TAG' does not point to a commit on master"
             exit 1
           fi
+
+      - name: Validate catalog and policy
+        run: |
+          node scripts/check-catalog.mjs
+          node --test tests/*.test.mjs
+          node scripts/check-commit-msg.mjs --revs HEAD
 
       - name: Generate bilingual changelog
         run: |
@@ -70,11 +70,14 @@ jobs:
           upload-artifact: false
           upload-release-assets: false
 
+      - name: Record immutable source and catalog metadata
+        run: node scripts/write-release-metadata.mjs "$TAG"
+
       - name: Write checksums
         run: |
           cd dist
           sha256sum "$REPO_NAME-$TAG.tar.gz" "$REPO_NAME-$TAG.spdx.json" \
-            CHANGELOG.en.md CHANGELOG.zh-CN.md release-notes.md > SHA256SUMS
+            release.json CHANGELOG.en.md CHANGELOG.zh-CN.md release-notes.md > SHA256SUMS
           cat SHA256SUMS
 
       - name: Upload release files
@@ -103,18 +106,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          args=()
-          if [[ $TAG == *-rc* ]]; then
-            args+=(--prerelease)
-          fi
-          gh release create "$TAG" \
-            "dist/$REPO_NAME-$TAG.tar.gz" \
-            "dist/$REPO_NAME-$TAG.spdx.json" \
-            dist/CHANGELOG.en.md \
-            dist/CHANGELOG.zh-CN.md \
-            dist/release-notes.md \
-            dist/SHA256SUMS \
-            --verify-tag \
-            --title "$TAG" \
-            --notes-file dist/release-notes.md \
-            "${args[@]}"
+          gh release create "$TAG" dist/* \
+            --verify-tag --title "$TAG" --notes-file dist/release-notes.md \
+            --prerelease=false --draft
+          gh release edit "$TAG" --draft=false
