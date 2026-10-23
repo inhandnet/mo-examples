@@ -10,14 +10,47 @@ InHand Mo 系列单板计算机的应用演示与示例项目。
 
 [![Mo 系列仓库职责与统一网站](architecture/repository-map.zh-CN.svg)](architecture/repository-map.zh-CN.svg)
 
-| 仓库 | 人工维护的源内容 | 交付职责 |
-|---|---|---|
-| **developer** · GitLab | 网站组件、路由、搜索、接入层与内容接口 | 完整网站、发布组成清单与部署 |
-| [mo-docs](https://github.com/inhandnet/mo-docs) | 软硬件教程、规格、媒体、设计资料与维护培训 | 版本化内容与参考附件 |
-| [mo-tools](https://github.com/inhandnet/mo-tools) | 工具链/SDK 选择、环境准备、通用开发工具与 Studio | 工具元信息和源码包 |
-| [mo-models](https://github.com/inhandnet/mo-models) | 模型目录、编译资源、兼容关系与原始基准 | 模型引用、验证证据与托管状态 |
-| [mo-examples](https://github.com/inhandnet/mo-examples) | 完整示例及配套固件、客户端和配置 | 示例源码及适用条件 |
-| **Mo\*** · 各型号仓库 | 各自 BSP、驱动、根文件系统、镜像构建与烧录 | 系统镜像及带校验值的发布元信息 |
+<table width="100%">
+  <thead>
+    <tr>
+      <th width="171" align="left">仓库</th>
+      <th width="398" align="left">人工维护的源内容</th>
+      <th width="379" align="left">交付职责</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="left"><strong>developer</strong> · GitLab</td>
+      <td align="left">网站组件、路由、搜索、接入层与内容接口</td>
+      <td align="left">完整网站、发布组成清单与部署</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://github.com/inhandnet/mo-docs">mo-docs</a></td>
+      <td align="left">软硬件教程、规格、媒体、设计资料与维护培训</td>
+      <td align="left">版本化内容与参考附件</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://github.com/inhandnet/mo-tools">mo-tools</a></td>
+      <td align="left">工具链/SDK 选择、环境准备、通用开发工具与 Studio</td>
+      <td align="left">工具元信息和源码包</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://github.com/inhandnet/mo-models">mo-models</a></td>
+      <td align="left">模型目录、编译资源、兼容关系与原始基准</td>
+      <td align="left">模型引用、验证证据与托管状态</td>
+    </tr>
+    <tr>
+      <td align="left"><a href="https://github.com/inhandnet/mo-examples">mo-examples</a></td>
+      <td align="left">完整示例及配套固件、客户端和配置</td>
+      <td align="left">示例源码及适用条件</td>
+    </tr>
+    <tr>
+      <td align="left"><strong>Mo*</strong> · 各型号仓库</td>
+      <td align="left">各自 BSP、驱动、根文件系统、镜像构建与烧录</td>
+      <td align="left">系统镜像及带校验值的发布元信息</td>
+    </tr>
+  </tbody>
+</table>
 
 `Mo*` 表示各型号独立的产品仓库，例如 [Mo62A](https://github.com/inhandnet/Mo62A)、Mo68A、Mo69A、Mo67A、Mo3588、Mo3568，框架不固定数量。mo-hardware 的资料与维护培训迁入 mo-docs；mo-hardware 保留为历史迁移来源，不再单列为目标网站发布组成项。
 
