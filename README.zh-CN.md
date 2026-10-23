@@ -104,7 +104,7 @@ Node 22 下运行 `node scripts/check-catalog.mjs` 和 `node --test tests/*.test
 
 R5F 固件、客户端和检查资源已成组迁入 [r5f/mcu-console](r5f/mcu-console/README.md)。`examples.json` 共列出 8 项现有示例；R5F 项记录 SDK、编译器和 SysConfig 的版本与哈希，developer 校验所选 mo-tools 配套。
 
-生成本仓库图示：在 developer 中运行 `node scripts/render-architecture.mjs --repo mo-examples --out /path/to/mo-examples/architecture`。本轮目录与文档仍在主题 PR 中；资源归属整理、网站发布冻结及整站上线按迁移状态分别验收。点击图示可查看原始 SVG。
+生成本仓库图示：在 developer 中运行 `node scripts/render-architecture.mjs --repo mo-examples --out /path/to/mo-examples/architecture`。源仓库发布时校验目录和资源；developer 独立验收组合后的整站版本与部署。点击图示可查看原始 SVG。
 
 ## 模型接口与完整下载包
 

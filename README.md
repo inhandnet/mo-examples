@@ -163,7 +163,7 @@ Diagrams are generated centrally by developer/scripts/render-architecture.mjs. R
 
 R5F firmware, client and checks now live together in [r5f/mcu-console](r5f/mcu-console/README.md). `examples.json` lists eight existing examples; its R5F entry pins SDK, compiler and SysConfig versions and hashes for validation against the selected mo-tools combination.
 
-Regenerate these diagrams from developer with `node scripts/render-architecture.mjs --repo mo-examples --out /path/to/mo-examples/architecture`. Catalog and documentation changes remain in the topic PR; resource consolidation, release freezing and full-site rollout have separate acceptance. Open each diagram to read the original SVG.
+Regenerate these diagrams from developer with `node scripts/render-architecture.mjs --repo mo-examples --out /path/to/mo-examples/architecture`. Source releases validate the catalogs and resources; developer separately verifies the combined website release and deployment. Open each diagram to read the original SVG.
 
 ## Model interface and complete download bundle
 
