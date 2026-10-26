@@ -4,7 +4,7 @@ import {execFileSync} from 'node:child_process';
 import {readFile, readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 
-const root = new URL('../ai/zone-demo/', import.meta.url);
+const root = new URL('../products/mo62a/ai/zone-demo/', import.meta.url);
 
 test('zone rules validate coordinates, hysteresis and end-of-stream semantics', () => {
   const output = execFileSync('python3', ['-B', '-m', 'unittest', 'discover', '-s', root.pathname,
@@ -22,14 +22,14 @@ test('licensed input clips retain their attribution and exact hashes', async () 
 });
 
 test('published target evidence agrees with repeated runs and source contracts', async () => {
-  const evidence = JSON.parse(await readFile(new URL('../ai/zone-demo/evidence/zone-demo-evidence.json', import.meta.url)));
+  const evidence = JSON.parse(await readFile(new URL('../products/mo62a/ai/zone-demo/evidence/zone-demo-evidence.json', import.meta.url)));
   assert.equal(evidence.bundle.model_id, 'od-8210');
   assert.equal(evidence.bundle.calibration.frames.length, 32);
   assert.equal(evidence.bundle.quantization.iterations, 3);
   assert.equal(evidence.board_images.samples.length, 8);
   assert.ok(evidence.board_images.samples.every(s => s.host_tidl_exact_match));
   assert.equal(evidence.video_runs.length, 3);
-  const frames = (await readFile(new URL('../ai/zone-demo/evidence/zone-demo-frames.jsonl', import.meta.url), 'utf8')).trim().split('\n').map(s => JSON.parse(s));
+  const frames = (await readFile(new URL('../products/mo62a/ai/zone-demo/evidence/zone-demo-frames.jsonl', import.meta.url), 'utf8')).trim().split('\n').map(s => JSON.parse(s));
   assert.equal(frames.length, 611);
   for (const run of evidence.video_runs) {
     assert.equal(run.completed, true);

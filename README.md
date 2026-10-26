@@ -4,7 +4,7 @@ English | [简体中文](README.zh-CN.md)
 
 Application demos and sample projects for InHand Mo series single-board computers.
 
-This repository holds runnable demos and sample projects for Mo boards: edge AI applications, camera pipelines, peripheral access, networking, R5F real-time core firmware and ROS 2 integration.
+This repository holds runnable demos and sample projects for Mo boards: edge AI applications, camera pipelines, networking and R5F real-time core firmware.
 
 Related repositories:
 
@@ -67,9 +67,11 @@ Each source repository publishes ordinary versions. Developer alone has website 
 
 ## Status
 
-The directory layout, contribution rules and the CI and release pipelines are in place. `ai/` and `camera/` hold the first batch of examples imported from the Mo62A repository and the mo-docs tutorial packages; `network/ble/`, `r5f/mcu-console/`, `camera/jpeg-capture/` and `ai/npu-demo/` contain migrated tutorial resources; `peripherals/` and `ros2/` are still placeholders whose `README.md` describes what will be published there. Importing an example into this repository did not re-build or re-run it; each directory README states what was verified and on which image. Catalog publication does not establish new hardware verification or model hosting.
+The directory layout, contribution rules and the CI and release pipelines are in place. `products/mo62a/ai/` and `products/mo62a/camera/` hold the first batch of examples imported from the Mo62A repository and the mo-docs tutorial packages; `products/mo62a/network/ble/`, `products/mo62a/r5f/mcu-console/`, `products/mo62a/camera/jpeg-capture/` and `products/mo62a/ai/npu-demo/` contain migrated tutorial resources. Importing an example into this repository did not re-build or re-run it; each directory README states what was verified and on which image. Catalog publication does not establish new hardware verification or model hosting.
 
 ## Repository layout
+
+Product directories: `products.json` lists the boards; each board keeps its examples under `products/<board>/` (`products/mo62a/` for Mo62A, `products/mo68a/` reserved for Mo68A). Boards do not share example files; catalog paths are relative to the product directory.
 
 <table width="100%">
   <thead>
@@ -80,28 +82,20 @@ The directory layout, contribution rules and the CI and release pipelines are in
   </thead>
   <tbody>
     <tr>
-      <td align="left"><code>ai/</code></td>
+      <td align="left"><code>products/mo62a/ai/</code></td>
       <td align="left">Edge AI examples: C/C++ SDK examples (<code>edgeai-cpp/</code>), a Python ONNX Runtime smoke test (<code>python-smoke/</code>) and the zone-occupancy tutorial application (<code>zone-demo/</code>).</td>
     </tr>
     <tr>
-      <td align="left"><code>camera/</code></td>
+      <td align="left"><code>products/mo62a/camera/</code></td>
       <td align="left">Camera examples: IMX219 CSI live preview (<code>imx219-preview/</code>).</td>
     </tr>
     <tr>
-      <td align="left"><code>peripherals/</code></td>
-      <td align="left">Peripheral examples.</td>
-    </tr>
-    <tr>
-      <td align="left"><code>network/</code></td>
+      <td align="left"><code>products/mo62a/network/</code></td>
       <td align="left">BLE peripheral and GATT check.</td>
     </tr>
     <tr>
-      <td align="left"><code>r5f/</code></td>
+      <td align="left"><code>products/mo62a/r5f/</code></td>
       <td align="left">MCU console firmware, host client, RPMsg helper and reload-cycle check.</td>
-    </tr>
-    <tr>
-      <td align="left"><code>ros2/</code></td>
-      <td align="left">ROS 2 examples (placeholder, P2).</td>
     </tr>
     <tr>
       <td align="left"><code>scripts/</code></td>
@@ -155,16 +149,16 @@ This repository is licensed under the terms in [LICENSE](LICENSE). Third-party c
 
 ## Unified website integration
 
-`examples.json` lists actual source projects, entrypoints, image/model requirements and tutorial routes. Empty scaffold folders are excluded. `source-available` is not a new board-test claim. Developer reads a pinned source revision, validates the combined data, and renders the website; this repository has no documentation-site frontend or website deployment.
+`products/mo62a/examples.json` lists actual source projects, entrypoints, image/model requirements and tutorial routes. Empty scaffold folders are excluded. `source-available` is not a new board-test claim. Developer reads a pinned source revision, validates the combined data, and renders the website; this repository has no documentation-site frontend or website deployment.
 
 Run `node scripts/check-catalog.mjs` and `node --test tests/*.test.mjs` with Node 22. `validation/` is exported from a committed developer contract and checked by hash; do not edit it locally. For integrated preview, run developer's `npm run preview -- --source mo-examples=/path/to/mo-examples`.
 
 Diagrams are generated centrally by developer/scripts/render-architecture.mjs. Regenerate all repository diagrams after changing the common architecture. Diagrams show ownership; the status section and catalog define currently available content and verification.
 
-R5F firmware, client and checks now live together in [r5f/mcu-console](r5f/mcu-console/README.md). `examples.json` lists eight existing examples; its R5F entry pins SDK, compiler and SysConfig versions and hashes for validation against the selected mo-tools combination.
+R5F firmware, client and checks now live together in [products/mo62a/r5f/mcu-console](products/mo62a/r5f/mcu-console/README.md). `products/mo62a/examples.json` lists eight existing examples; its R5F entry pins SDK, compiler and SysConfig versions and hashes for validation against the selected mo-tools combination.
 
 Regenerate these diagrams from developer with `node scripts/render-architecture.mjs --repo mo-examples --out /path/to/mo-examples/architecture`. Source releases validate the catalogs and resources; developer separately verifies the combined website release and deployment. Open each diagram to read the original SVG.
 
 ## Model interface and complete download bundle
 
-Zone-demo vendors a generated copy of the mo-models `model.py` interface, pinned in `dependencies/model-contract.json`. Update it with `node scripts/sync-model-contract.mjs /path/to/mo-models`, which accepts committed authoritative bytes only. CI and website integration verify hashes. Example sources work independently; developer assembles the full tutorial bundle with model-compilation and host-setup scripts and records provenance for every file.
+Zone-demo vendors a generated copy of the mo-models `model.py` interface, pinned in `products/mo62a/dependencies/model-contract.json`. Update it with `node scripts/sync-model-contract.mjs /path/to/mo-models`, which accepts committed authoritative bytes only. CI and website integration verify hashes. Example sources work independently; developer assembles the full tutorial bundle with model-compilation and host-setup scripts and records provenance for every file.

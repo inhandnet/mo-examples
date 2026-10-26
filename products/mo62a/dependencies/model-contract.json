@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
   "repository": "inhandnet/mo-models",
-  "commit": "231392a5507555bcbabbb9ec719237da8d878d52",
+  "commit": "7d939a9c2d7886f2af99afa2fff16c0efe0ffb35",
   "files": [
     {
-      "source": "compile/zone-demo/model.py",
-      "target": "ai/zone-demo/model.py",
+      "source": "products/mo62a/compile/zone-demo/model.py",
+      "target": "products/mo62a/ai/zone-demo/model.py",
       "sha256": "3594ca721bc73c9fd11609106c76b816be9ab6e9583b330b3de5245636613dc0"
     }
   ]

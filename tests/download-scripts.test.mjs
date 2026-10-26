@@ -5,9 +5,9 @@ import {mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync} from 'node:
 import {join, resolve} from 'node:path';
 import {tmpdir} from 'node:os';
 
-const consoleScript = resolve('r5f/mcu-console/mcu-console.py');
-const reloadScript = resolve('r5f/mcu-console/reload-cycle.sh');
-const videoScript = resolve('ai/npu-demo/run-video-demo.sh');
+const consoleScript = resolve('products/mo62a/r5f/mcu-console/mcu-console.py');
+const reloadScript = resolve('products/mo62a/r5f/mcu-console/reload-cycle.sh');
+const videoScript = resolve('products/mo62a/ai/npu-demo/run-video-demo.sh');
 
 test('MCU console rejects invalid byte lengths and transport failures', () => {
   execFileSync('python3', ['-B', '-c', `

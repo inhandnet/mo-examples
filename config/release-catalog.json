@@ -3,6 +3,7 @@
   "repository": "inhandnet/mo-examples",
   "kind": "examples",
   "catalogs": [
-    "examples.json"
+    "products.json",
+    "products/mo62a/examples.json"
   ]
 }
