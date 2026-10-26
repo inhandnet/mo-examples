@@ -54,9 +54,9 @@ ROI must not imply misconduct or endorsement by any depicted person.
 
 The application, licensed inputs and recorded results live in mo-examples.
 `model.py` is a generated, hash-checked copy of the model contract owned by
-mo-models; `dependencies/model-contract.json` pins its source commit. Do not
-edit this generated copy. Host setup belongs to mo-tools/toolchain/host-setup,
-and compilation belongs to mo-models/compile/zone-demo. The developer website
+mo-models; `products/mo62a/dependencies/model-contract.json` pins its source commit. Do not
+edit this generated copy. Host setup belongs to mo-tools/products/mo62a/toolchain/host-setup,
+and compilation belongs to mo-models/products/mo62a/compile/zone-demo. The developer website
 assembles those fixed sources into the complete tutorial download and includes
 `WEBSITE-SOURCES.json` with per-file origins and hashes.
 

@@ -62,16 +62,16 @@ InHand Mo 系列单板计算机的应用演示与示例项目。
 
 ## 状态
 
-目录结构、贡献规范以及 CI 与发布流水线已就绪。`ai/` 与 `camera/` 已加入第一批示例（来自 Mo62A 仓库与 mo-docs 教程包）；`network/ble/`、`r5f/mcu-console/`、`camera/jpeg-capture/` 和 `ai/npu-demo/` 已接收教程配套资源；`peripherals/` 与 `ros2/` 仍为占位目录，其 `README.md` 说明将要存放的内容。示例迁入本仓库时未重新编译或重新运行，各目录 README 写明了验证范围与对应镜像版本。目录发布不增加实机验证结论。
+目录结构、贡献规范以及 CI 与发布流水线已就绪。`products/mo62a/ai/` 与 `products/mo62a/camera/` 已加入第一批示例（来自 Mo62A 仓库与 mo-docs 教程包）；`products/mo62a/network/ble/`、`products/mo62a/r5f/mcu-console/`、`products/mo62a/camera/jpeg-capture/` 和 `products/mo62a/ai/npu-demo/` 已接收教程配套资源。示例迁入本仓库时未重新编译或重新运行，各目录 README 写明了验证范围与对应镜像版本。目录发布不增加实机验证结论。
 
 ## 目录结构
 
-- `ai/` — Edge AI 示例：C/C++ SDK 示例（`edgeai-cpp/`）、Python ONNX Runtime 冒烟测试（`python-smoke/`）、区域占用教程应用（`zone-demo/`）
-- `camera/` — 摄像头示例：IMX219 CSI 实时预览（`imx219-preview/`）
-- `peripherals/` — Peripheral examples
-- `network/` — BLE 外设与 GATT 检查
-- `r5f/` — MCU 控制台固件、主机客户端、RPMsg 与重载检查
-- `ros2/` — ROS 2 示例（占位）
+产品目录：`products.json` 列出产品，每个产品的示例放在 `products/<产品>/`（Mo62A 为 `products/mo62a/`，Mo68A 为预留的 `products/mo68a/`）。不同产品不共用示例文件，目录中的路径均相对于各自产品目录。
+
+- `products/mo62a/ai/` — Edge AI 示例：C/C++ SDK 示例（`edgeai-cpp/`）、Python ONNX Runtime 冒烟测试（`python-smoke/`）、区域占用教程应用（`zone-demo/`）
+- `products/mo62a/camera/` — 摄像头示例：IMX219 CSI 实时预览（`imx219-preview/`）
+- `products/mo62a/network/` — BLE 外设与 GATT 检查
+- `products/mo62a/r5f/` — MCU 控制台固件、主机客户端、RPMsg 与重载检查
 - `scripts/` — 仓库维护脚本（提交信息检查、变更记录生成）
 - `.githooks/` — 本地提交信息检查钩子
 - `.github/` — Issue 表单、PR 模板与 GitHub Actions 工作流
@@ -96,16 +96,16 @@ InHand Mo 系列单板计算机的应用演示与示例项目。
 
 ## 统一网站接入
 
-examples.json 只列出已有源码工程、入口、镜像/模型依赖和教程路由，空占位目录不算示例；源码可用不代表新一轮实机验收通过。 developer 固定源码版本后统一校验和渲染，本仓库不部署文档网站。
+`products/mo62a/examples.json` 只列出已有源码工程、入口、镜像/模型依赖和教程路由，空占位目录不算示例；源码可用不代表新一轮实机验收通过。 developer 固定源码版本后统一校验和渲染，本仓库不部署文档网站。
 
 Node 22 下运行 `node scripts/check-catalog.mjs` 和 `node --test tests/*.test.mjs`。validation/ 是 developer 已提交规则的固定副本，通过哈希核验，不手工编辑。集成预览在 developer 中运行 `npm run preview -- --source mo-examples=/path/to/mo-examples`。
 
 框架图由 developer/scripts/render-architecture.mjs 统一生成，修改公共架构后同步生成各仓库图。图中为职责边界；当前可用目录和验证范围以状态段及目录清单为准。
 
-R5F 固件、客户端和检查资源已成组迁入 [r5f/mcu-console](r5f/mcu-console/README.md)。`examples.json` 共列出 8 项现有示例；R5F 项记录 SDK、编译器和 SysConfig 的版本与哈希，developer 校验所选 mo-tools 配套。
+R5F 固件、客户端和检查资源已成组迁入 [products/mo62a/r5f/mcu-console](products/mo62a/r5f/mcu-console/README.md)。`products/mo62a/examples.json` 共列出 8 项现有示例；R5F 项记录 SDK、编译器和 SysConfig 的版本与哈希，developer 校验所选 mo-tools 配套。
 
 生成本仓库图示：在 developer 中运行 `node scripts/render-architecture.mjs --repo mo-examples --out /path/to/mo-examples/architecture`。源仓库发布时校验目录和资源；developer 独立验收组合后的整站版本与部署。点击图示可查看原始 SVG。
 
 ## 模型接口与完整下载包
 
-zone-demo 的 `model.py` 是 mo-models 的生成副本，来源记录于 `dependencies/model-contract.json`。更新时运行 `node scripts/sync-model-contract.mjs /path/to/mo-models`，只接受已提交的权威源；CI 与网站集成均核对哈希。示例源码可以独立使用；包含模型编译和主机准备脚本的完整教程包由 developer 组装，附每个文件的来源与哈希。
+zone-demo 的 `model.py` 是 mo-models 的生成副本，来源记录于 `products/mo62a/dependencies/model-contract.json`。更新时运行 `node scripts/sync-model-contract.mjs /path/to/mo-models`，只接受已提交的权威源；CI 与网站集成均核对哈希。示例源码可以独立使用；包含模型编译和主机准备脚本的完整教程包由 developer 组装，附每个文件的来源与哈希。

@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-export const catalogContractVersion = 1;
+export const catalogContractVersion = 2;
 const sha256 = /^[a-f0-9]{64}$/;
 const commit = /^[a-f0-9]{40}$/;
 const ordinaryVersion = /^V(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/;
@@ -134,6 +134,33 @@ export function checkExamples(root) {
     }
   }
   return data;
+}
+
+// Each business repository routes product-specific catalogs through products.json:
+// products/<dir>/ holds one board's tools, models or examples. Products are never
+// assumed to share files; a planned product has only a README until it is active.
+export const productIds = ['mo-62a', 'mo-68a'];
+export function checkProducts(root, kind) {
+  const check = {tools: checkTools, models: checkModels, examples: checkExamples}[kind];
+  need(check, 'products.json', 'unsupported repository kind');
+  const index = json(root, 'products.json'), where = 'products.json';
+  need(index.schema_version === 1 && Array.isArray(index.products) && index.products.length, where, 'unsupported or empty product index');
+  const seen = new Set(), result = {};
+  for (const item of index.products) {
+    need(productIds.includes(item.id) && !seen.has(item.id), `${where}/${item.id}`, 'unique known product id required'); seen.add(item.id);
+    need(item.path === `products/${item.id.replace('-', '')}`, `${where}/${item.id}`, 'product directory must be products/<board without dash>');
+    need(['active', 'planned'].includes(item.status), `${where}/${item.id}`, 'status must be active or planned');
+    catalogFile(root, `${item.path}/README.md`);
+    if (item.status === 'planned') continue;
+    const productRoot = path.join(root, item.path);
+    const data = check(productRoot);
+    const boards = kind === 'tools' ? [data.r5f?.board].filter(Boolean)
+      : kind === 'models' ? data.catalog.models.flatMap(m => m.boards) : data.examples.flatMap(e => e.boards);
+    need(boards.every(board => board === item.id), `${item.path}`, `catalog entries must belong to ${item.id}`);
+    result[item.id] = {path: item.path, data};
+  }
+  need(Object.keys(result).length, where, 'at least one active product required');
+  return result;
 }
 
 // Cross-repository compatibility is checked by developer against this exact set.

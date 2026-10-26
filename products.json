@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "products": [
+    {
+      "id": "mo-62a",
+      "path": "products/mo62a",
+      "status": "active"
+    },
+    {
+      "id": "mo-68a",
+      "path": "products/mo68a",
+      "status": "planned"
+    }
+  ]
+}
