@@ -1,7 +1,8 @@
-# Security reporting
+# Security policy
 
-Do not disclose suspected vulnerabilities, exploit details, credentials, or private keys in public GitHub issues, pull requests, or forum posts.
+Do not report security vulnerabilities in public issues, pull requests or forum posts.
 
-A dedicated private reporting channel for Mo products has not yet been published here. If you already have a private InHand support contact, ask them to confirm the appropriate security reporting channel before sharing sensitive details. Do not send vulnerability details through an unverified channel.
+Report a vulnerability privately through GitHub: open the **Security** tab of this repository and select **Report a vulnerability**. Only the maintainers can see the report.
 
-Ordinary bug reports and corrections for the content of this repository can be submitted as issues or pull requests, provided they do not disclose a security vulnerability.
+The full policy, including which repository to use and how advisories are published, is on the developer site:
+<https://developer.inhand.online/docs/security/vulnerability-reporting/>
