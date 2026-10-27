@@ -17,7 +17,8 @@
         "mo-62a"
       ],
       "images": [
-        "V1.1.0"
+        "V1.1.0",
+        "V1.1.1"
       ],
       "models": [
         "ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416"
@@ -63,7 +64,8 @@
         "mo-62a"
       ],
       "images": [
-        "V1.1.0"
+        "V1.1.0",
+        "V1.1.1"
       ],
       "models": [
         "ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416"
@@ -191,7 +193,8 @@
         "mo-62a"
       ],
       "images": [
-        "V1.1.0"
+        "V1.1.0",
+        "V1.1.1"
       ],
       "models": [],
       "verification": "source-available",

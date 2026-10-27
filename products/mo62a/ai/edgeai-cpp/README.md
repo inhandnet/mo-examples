@@ -22,7 +22,7 @@ cmake .. && make
 ## Run
 
 ```bash
-./hello_inference /opt/model_zoo/ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416
+sudo ./hello_inference -m /opt/model_zoo/ONR-OD-8200-yolox-nano-lite-mmdet-coco-416x416   # TIDL needs root
 
 sudo systemctl stop lightdm            # kmssink needs DRM master
 sudo -E ./app_edgeai ../configs/object_detection_csi.yaml
